@@ -27,7 +27,7 @@ public class Change : MonoBehaviour
         SceneManager.LoadScene("Login");
     }
 
-    public void SignUpChange(){                 //회원가입 화면 이동
+    public void SignUpChange(){                 //회원가입 화면 이동하기
         SceneManager.LoadScene("SignUp");
     }
 }

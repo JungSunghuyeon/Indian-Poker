@@ -23,11 +23,11 @@ public class Change : MonoBehaviour
         SceneManager.LoadScene("main");
     }
 
-   public void LoginChange(){
+   public void LoginChange(){                   //로그인 화면 이동
         SceneManager.LoadScene("Login");
     }
 
-    public void SignUpChange(){
+    public void SignUpChange(){                 //회원가입 화면 이동
         SceneManager.LoadScene("SignUp");
     }
 }

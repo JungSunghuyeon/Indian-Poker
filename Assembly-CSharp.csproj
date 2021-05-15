@@ -41,6 +41,7 @@
      <Compile Include="Assets\Script\Cancle.cs" />
      <Compile Include="Assets\Script\Member.cs" />
      <Compile Include="Assets\Script\Change.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />

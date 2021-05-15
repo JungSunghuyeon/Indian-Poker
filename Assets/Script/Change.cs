@@ -8,19 +8,19 @@ public class Change : MonoBehaviour
 {
     // 화면 전환
       public void GameStartChange(){        //게임방 화면 이동
-        SceneManager.LoadScene("gamestart");
+        SceneManager.LoadScene("GameBoard");
     }
 
     public void RankChange(){                  //랭킹 화면 이동
-        SceneManager.LoadScene("rank");
+        SceneManager.LoadScene("Rank");
     }
 
     public void OptionChange(){                //옵션 화면 이동
-        SceneManager.LoadScene("option");
+        SceneManager.LoadScene("Option");
     }
 
     public void MainChange(){                   //메인 화면 이동
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("Lobby");
     }
 
    public void LoginChange(){                   //로그인 화면 이동

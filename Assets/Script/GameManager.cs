@@ -23,13 +23,22 @@ public class GameManager : MonoBehaviour
     Card_Get1 card_get1 = new Card_Get1();
     Card_Get2 card_get2 = new Card_Get2();
    public void Start(){
-       Firstturn();
-        Debug.Log(card_get2.txt_card_transport());
-        Debug.Log(card_get1.txt_card_transport());
+        tx_p1num.text = card_get1.txt_card_transport().ToString();
+        tx_p2num.text = card_get2.txt_card_transport().ToString();
+        Firstturn();
+       
    }
    public void result(){
        if((p1Cnt == 1) && (p2Cnt == 1)){
-           tx_result.text = "확인";
+           if(int.Parse(tx_p1num.text) > int.Parse(tx_p2num.text)){
+                tx_result.text = "player1 승리";
+           }
+           else if(int.Parse(tx_p1num.text) < int.Parse(tx_p2num.text)){
+               tx_result.text = "player2 승리";
+           }
+           else{
+               tx_result.text = "무승부";
+           }
            Disable();
        }
    }

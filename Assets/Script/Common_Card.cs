@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Common_Card : MonoBehaviour
 {
+    
    // Start is called before the first frame update
     Card card = new Card();
     public int start_card()

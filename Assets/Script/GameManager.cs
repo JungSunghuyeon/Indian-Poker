@@ -20,9 +20,12 @@ public class GameManager : MonoBehaviour
 
     public int p1betSum, p2betSum;  //무승부가 날 경우 배팅한 코인을 다시 돌려받기위함
     
-    Card_Get card_get = new Card_Get();
+    Card_Get1 card_get1 = new Card_Get1();
+    Card_Get2 card_get2 = new Card_Get2();
    public void Start(){
        Firstturn();
+        Debug.Log(card_get2.txt_card_transport());
+        Debug.Log(card_get1.txt_card_transport());
    }
    public void result(){
        if((p1Cnt == 1) && (p2Cnt == 1)){

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Text tx_betcoin;         //누적 배팅된 코인 텍스트
     public Text tx_p1Bet, tx_p2Bet; //각 플레이어가 배팅한 개수 텍스트
     public Text tx_result;          //승패 결정 결과 텍스트
+    public Text tx_p1num, tx_p2num;
+
 
     public static int num = 0;      //누적 배팅된 코인
     public int p1Bet, p2Bet;        //각 플레이어가 배팅한 개수
@@ -17,7 +19,8 @@ public class GameManager : MonoBehaviour
     public int p1Cnt = 0, p2Cnt = 0;    //각 플레이어가 call 누를시 flag 1
 
     public int p1betSum, p2betSum;  //무승부가 날 경우 배팅한 코인을 다시 돌려받기위함
-   
+    
+    Card_Get card_get = new Card_Get();
    public void Start(){
        Firstturn();
    }

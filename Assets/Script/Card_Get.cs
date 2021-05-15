@@ -7,11 +7,11 @@ public class Card_Get : MonoBehaviour
 {
 
     private Image img_card;
-    Button btn_card1;
-    Card card = new Card();
+    public int txt_card;
+    Common_Card card = new Common_Card();
     // Start is called before the first frame update
-    int p1_card = 0;
-    int p2_card = 0;
+    int p_card = 0;
+
     [SerializeField]
     private Sprite[] sprites;
 
@@ -19,11 +19,9 @@ public class Card_Get : MonoBehaviour
     void Start()
     {
         img_card = GetComponent<Image>();
-        card.create();
-        p1_card = card.deal();
-    }
+        p_card = card.start_card();
 
-  
+    }
 
     void Update() {
         Invoke("Show_Card",2);
@@ -31,7 +29,13 @@ public class Card_Get : MonoBehaviour
     }
 
     void Show_Card() {
-        img_card.sprite = sprites[p1_card];    
+        img_card.sprite = sprites[p_card-1];
+            
+    }
+
+    public int txt_card_transport(){
+        txt_card = card.start_card();
+        return txt_card;
     }
 
 }

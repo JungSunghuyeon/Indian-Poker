@@ -11,6 +11,8 @@ public class Login : MonoBehaviour
     DatabaseReference reference;
     public InputField id_text;
     public InputField password_text;
+    public static bool isLogin = false;
+    public static string name;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +31,12 @@ public class Login : MonoBehaviour
                 foreach(DataSnapshot data in snapshot.Children){
                     IDictionary member = (IDictionary)data.Value;
                     if(member["id"].ToString().Equals(id) && member["pwd"].ToString().Equals(pwd)){
-                        check++;
+                        name = member["name"].ToString();
+                        Debug.Log("login Success");
+                        isLogin = true;
+                        SceneManager.LoadScene("Lobby");
                         break;
                     }
-                }
-                if(check != 0){
-                    Debug.Log("login Success");
-                    // to main
                 }
             }
         });

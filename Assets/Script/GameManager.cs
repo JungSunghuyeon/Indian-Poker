@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     Card_Get2 card_get2 = new Card_Get2();
    public void Start(){
         tx_p1num.text = card_get1.txt_card_transport().ToString();
-        tx_p2num.text = card_get2.txt_card_transport().ToString();
         Firstturn();
        
    }

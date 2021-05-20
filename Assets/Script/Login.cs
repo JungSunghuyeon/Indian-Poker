@@ -33,13 +33,13 @@ public class Login : MonoBehaviour
                     if(member["id"].ToString().Equals(id) && member["pwd"].ToString().Equals(pwd)){
                         name = member["name"].ToString();
                         Debug.Log("login Success");
-                        SceneManager.LoadScene("Lobby");
                         isLogin = true;
                         break;
                     }
                 }
             }
         });
+        SceneManager.LoadScene("Lobby");
     }
     public void SignUp(){
         SceneManager.LoadScene("SignUp");

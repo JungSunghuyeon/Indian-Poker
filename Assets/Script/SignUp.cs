@@ -31,6 +31,7 @@ public class SignUp: MonoBehaviour
                 if(pwd.Equals(pwd_ck)){
                     register(name_text.text, id_text2.text, pwd);
                     Debug.Log("success");
+                    SceneManager.LoadScene("Login");
                 }
             }
             else{

@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Login.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: b6a87d1d49717194f880af8e842cb982
+  - enabled: 1
     path: Assets/Scenes/SignUp.unity
     guid: a8fb8a5191a41df44ad6e2f70c12bed1
   - enabled: 1
     path: Assets/Scenes/GameBoard.unity
     guid: 8cf606f352ed83641acc9ab7de33e53f
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: b6a87d1d49717194f880af8e842cb982
-  - enabled: 1
-    path: Assets/Scenes/option.unity
+    path: Assets/Scenes/Option.unity
     guid: 702fb98da099f0447812f4060edecc36
   - enabled: 1
-    path: Assets/Scenes/rank.unity
+    path: Assets/Scenes/Rank.unity
     guid: 192bde5c5972d4547a44c3fcdde8426b
   m_configObjects: {}

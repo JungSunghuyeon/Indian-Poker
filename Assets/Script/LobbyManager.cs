@@ -43,6 +43,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom(){
         connectionInfoText.text = "connected with Room";
-        //PhotonNetwork.LoadLevel("GameBoard");
+        PhotonNetwork.LoadLevel("GameBoard");
     }
 }

@@ -588,9 +588,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20437815ca5c0d4b9ea029b1a1ac539, type: 3}
+  m_Script: {fileID: 11500000, guid: 70046d67342d63949a87525b0ab45476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joinButton: {fileID: 747950046}
+  connectionInfoText: {fileID: 2112074072}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -864,7 +866,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 747950047}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 198024657}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: Connect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &747950047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1647,6 +1661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893100247}
   - component: {fileID: 1893100246}
+  - component: {fileID: 1893100248}
   m_Layer: 0
   m_Name: Click
   m_TagString: Untagged
@@ -1680,6 +1695,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1893100248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893100245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70046d67342d63949a87525b0ab45476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joinButton: {fileID: 747950046}
+  connectionInfoText: {fileID: 2112074072}
 --- !u!1 &2112074069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,8 +1759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70046d67342d63949a87525b0ab45476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joinButton: {fileID: 0}
-  connectionInfoText: {fileID: 0}
+  joinButton: {fileID: 747950046}
+  connectionInfoText: {fileID: 2112074072}
 --- !u!114 &2112074072
 MonoBehaviour:
   m_ObjectHideFlags: 0

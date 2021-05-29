@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerText: {fileID: 267647973}
+  coinText: {fileID: 0}
 --- !u!114 &267647976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,6 +1194,7 @@ GameObject:
   - component: {fileID: 1294444298}
   - component: {fileID: 1294444300}
   - component: {fileID: 1294444299}
+  - component: {fileID: 1294444301}
   m_Layer: 5
   m_Name: tf_userCoin
   m_TagString: Untagged
@@ -1261,6 +1263,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294444297}
   m_CullTransparentMesh: 1
+--- !u!114 &1294444301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294444297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce974f3d8eb1634a8caa44ea874062e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerText: {fileID: 267647973}
+  coinText: {fileID: 1294444299}
 --- !u!1 &1340409053
 GameObject:
   m_ObjectHideFlags: 0

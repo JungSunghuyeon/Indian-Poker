@@ -15,6 +15,7 @@ public class Login : MonoBehaviour
     public InputField password_text;
     public static bool isLogin = false;
     public static string name;
+    public static String coin;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,7 @@ public class Login : MonoBehaviour
                     IDictionary member = (IDictionary)data.Value;
                     if(member["id"].ToString().Equals(id) && member["pwd"].ToString().Equals(pwd)){
                         name = member["name"].ToString();
+                        coin = member["coin"].ToString();
                         Debug.Log("login Success");
                         isLogin = true;
                         SceneManager.LoadScene("Lobby");
@@ -49,8 +51,6 @@ public class Login : MonoBehaviour
             }    
             );
         });
-        //toLobby();
-        //SceneManager.LoadScene("Lobby");
     }
     public void SignUp(){
         SceneManager.LoadScene("SignUp");

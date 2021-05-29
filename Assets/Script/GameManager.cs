@@ -18,13 +18,17 @@ public class GameManager : MonoBehaviourPun
     public int p1Cnt = 0, p2Cnt = 0;    //각 플레이어가 call 누를시 flag 1
 
     public int p1betSum, p2betSum;  //무승부가 날 경우 배팅한 코인을 다시 돌려받기위함
-    public bool MasterOrClient => PhotonNetwork.IsMasterClient && photonView.IsMine;
+    public bool MasterOrClient => PhotonNetwork.IsMasterClient;
     Card_Get1 card_get1 = new Card_Get1();
     Card_Get2 card_get2 = new Card_Get2();
    public void Start(){
         tx_p1num.text = card_get1.txt_card_transport().ToString();
-        Firstturn();
-       
+        tx_p2num.text = card_get2.txt_card_transport().ToString();
+        if(!MasterOrClient || PhotonNetwork.PlayerList.Length < 2){
+            Debug.Log(PhotonNetwork.PlayerList.Length +" connected");
+        }else{
+            Firstturn();
+        }
    }
    public void result(){
        if((p1Cnt == 1) && (p2Cnt == 1)){

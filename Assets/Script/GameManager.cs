@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviourPun
     public Text tx_p1Bet, tx_p2Bet; //각 플레이어가 배팅한 개수 텍스트
     public Text tx_result;          //승패 결정 결과 텍스트
     public Text tx_p1num, tx_p2num;
-
-    public Text network;
-
     public static int num = 0;      //누적 배팅된 코인
     public int p1Bet, p2Bet;        //각 플레이어가 배팅한 개수
     public int Cnt = 0;              //배팅한 횟수 
@@ -170,9 +167,9 @@ public class GameManager : MonoBehaviourPun
     }
     private void FixedUpdate() {
         if(!MasterOrClient || PhotonNetwork.PlayerList.Length < 2){
-            network.text = PhotonNetwork.PlayerList.Length +" connected";
+            Debug.Log(PhotonNetwork.PlayerList.Length +" connected");
         }else{
-            network.text = "two player connected";
+            Debug.Log("two player connected");
         }
     }
 }

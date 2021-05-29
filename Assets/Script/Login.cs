@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Firebase;
 using Firebase.Database;
+using System.Collections.Concurrent;
+using System;
 
 public class Login : MonoBehaviour
 {
@@ -18,7 +20,12 @@ public class Login : MonoBehaviour
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
-
+    private ConcurrentQueue<Action> mainThreadActions = new ConcurrentQueue<Action>();
+    private void Update(){
+        while(mainThreadActions.Count > 0 && mainThreadActions.TryDequeue(out var action)){
+            action?.Invoke();
+        }
+    }
     // Update is called once per frame
     public void login(){
         int check = 0;
@@ -26,7 +33,8 @@ public class Login : MonoBehaviour
         string pwd = password_text.text;
         reference = FirebaseDatabase.DefaultInstance.RootReference.Child("member");
         reference.GetValueAsync().ContinueWith(task => {
-            if(task.IsCompleted){
+            mainThreadActions.Enqueue(() =>
+            {
                 DataSnapshot snapshot = task.Result;
                 foreach(DataSnapshot data in snapshot.Children){
                     IDictionary member = (IDictionary)data.Value;
@@ -34,12 +42,15 @@ public class Login : MonoBehaviour
                         name = member["name"].ToString();
                         Debug.Log("login Success");
                         isLogin = true;
+                        SceneManager.LoadScene("Lobby");
                         break;
                     }
                 }
-            }
+            }    
+            );
         });
-        SceneManager.LoadScene("Lobby");
+        //toLobby();
+        //SceneManager.LoadScene("Lobby");
     }
     public void SignUp(){
         SceneManager.LoadScene("SignUp");

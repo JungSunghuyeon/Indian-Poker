@@ -14,6 +14,7 @@ public class SignUp: MonoBehaviour
     public InputField password_text2;
     public InputField password_text3;
     public bool id_check = false;
+    private int dafaultCoin = 30;
     public void Start() {
             reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
@@ -42,7 +43,7 @@ public class SignUp: MonoBehaviour
         }
     }
     private void register(string name, string id, string pwd){
-        Member member = new Member(name, id, pwd);
+        Member member = new Member(name, id, pwd, dafaultCoin);
         string json = JsonUtility.ToJson(member);
         string key = reference.Child("member").Push().Key;
         reference.Child(key).SetRawJsonValueAsync(json);

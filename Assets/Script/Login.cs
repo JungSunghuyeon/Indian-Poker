@@ -17,6 +17,8 @@ public class Login : MonoBehaviour
     public static string name;
     public static String coin;
     // Start is called before the first frame update
+
+
     void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;

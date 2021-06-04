@@ -24,10 +24,10 @@ public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
 
     void Show_Card() {
         img_card.sprite = sprites[p_card-1];
-            
+        
     }
 
-    public int txt_card_transport(){
+    public static int txt_card_transport(){
         return p_card;
     }
 

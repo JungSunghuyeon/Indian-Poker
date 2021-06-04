@@ -31,7 +31,7 @@ public class Card_Get2 : MonoBehaviourPunCallbacks, IPunObservable
             
     }
 
-    public int txt_card_transport(){
+    public static int txt_card_transport(){
         return p_card;
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){

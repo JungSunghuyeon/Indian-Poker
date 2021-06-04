@@ -12,6 +12,8 @@ ScriptsOnlyBuild:
     - GameManager
     - LobbyManager
     - Login
+    - P1CardNumber
+    - P2CardNumber
     - Player1Call
     - Player1Coin
     - Player1Die
@@ -47,7 +49,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -165,7 +166,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4876}
     - Class: 114
-      Script: {instanceID: 23848}
+      Script: {instanceID: 22334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -290,11 +291,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5112}
     - Class: 114
-      Script: {instanceID: 5284}
+      Script: {instanceID: 5160}
     - Class: 114
-      Script: {instanceID: 5516}
+      Script: {instanceID: 5286}
     - Class: 114
-      Script: {instanceID: 5682}
+      Script: {instanceID: 5374}
+    - Class: 114
+      Script: {instanceID: 5520}
+    - Class: 114
+      Script: {instanceID: 5686}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1818,6 +1823,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: P2CardNumber
+  - hash:
+      serializedVersion: 2
       Hash: ee1dba1a186ac062d564e9eb73a1c56f
     assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Chat.UtilityScripts
@@ -1876,6 +1887,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: PunTurnManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: P1CardNumber
   - hash:
       serializedVersion: 2
       Hash: 11bdd61587db747672b66c52442395d8

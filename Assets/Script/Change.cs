@@ -15,10 +15,6 @@ public class Change : MonoBehaviour
         SceneManager.LoadScene("Rank");
     }
 
-    public void OptionChange(){                //옵션 화면 이동
-        SceneManager.LoadScene("Option");
-    }
-
     public void MainChange(){                   //메인 화면 이동
         SceneManager.LoadScene("Lobby");
     }

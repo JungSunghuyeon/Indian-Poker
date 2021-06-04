@@ -1150,6 +1150,7 @@ GameObject:
   - component: {fileID: 1500138251}
   - component: {fileID: 1500138250}
   - component: {fileID: 1500138249}
+  - component: {fileID: 1500138252}
   m_Layer: 5
   m_Name: Exit_btn
   m_TagString: Untagged
@@ -1259,6 +1260,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500138247}
   m_CullTransparentMesh: 1
+--- !u!114 &1500138252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500138247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a36c6c631fa6045a27c91e01224994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1542403313
 GameObject:
   m_ObjectHideFlags: 0

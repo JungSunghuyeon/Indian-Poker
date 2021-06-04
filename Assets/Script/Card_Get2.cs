@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class Card_Get2 : MonoBehaviour
+public class Card_Get2 : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     private Image img_card;
@@ -17,11 +18,11 @@ public class Card_Get2 : MonoBehaviour
     {
         img_card = GetComponent<Image>();
         p_card = card.start_card();
-
+        Invoke("Show_Card",2);
     }
 
     void Update() {
-        Invoke("Show_Card",2);
+       
          
     }
 
@@ -32,6 +33,16 @@ public class Card_Get2 : MonoBehaviour
 
     public int txt_card_transport(){
         return p_card;
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
+        if(stream.IsWriting) 
+        {
+           
+        }
+        else 
+        {
+            
+        }
     }
 
 }

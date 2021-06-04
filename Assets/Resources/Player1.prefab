@@ -231,7 +231,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4900774156585639577}
   - {fileID: 4089570219131737253}
-  sceneViewId: 1
+  sceneViewId: 16
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &4089570219131737253
@@ -293,9 +293,9 @@ GameObject:
   - component: {fileID: 6643097173360519170}
   - component: {fileID: 6643097173360519169}
   - component: {fileID: 6643097173360519168}
-  - component: {fileID: 1454309068}
   - component: {fileID: 1454309067}
   - component: {fileID: 1454309066}
+  - component: {fileID: 8912238287590043936}
   m_Layer: 0
   m_Name: Btn_p1call
   m_TagString: Untagged
@@ -405,18 +405,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1454309068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6643097173360519174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dcd7ab46e4aff941a7783e486aa1853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1454309067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,8 +424,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1454309068}
   - {fileID: 1454309066}
+  - {fileID: 8912238287590043936}
   sceneViewId: 7
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -457,6 +445,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &8912238287590043936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097173360519174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcd7ab46e4aff941a7783e486aa1853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6643097173578911968
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 853256046}
-  sceneViewId: 2
+  sceneViewId: 19
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &853256046
@@ -708,6 +708,9 @@ GameObject:
   - component: {fileID: 6643097173859009657}
   - component: {fileID: 6643097173859009656}
   - component: {fileID: 6643097173859009663}
+  - component: {fileID: 3797341107595812823}
+  - component: {fileID: 5733245951800890802}
+  - component: {fileID: 110686404}
   m_Layer: 0
   m_Name: Btn_p1die
   m_TagString: Untagged
@@ -817,6 +820,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3797341107595812823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097173859009661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5733245951800890802}
+  - {fileID: 110686404}
+  sceneViewId: 17
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5733245951800890802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097173859009661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &110686404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097173859009661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bad685341f0d44ea5020b586671e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6643097174178676371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1121,9 @@ GameObject:
   - component: {fileID: 6643097174412908025}
   - component: {fileID: 6643097174412908024}
   - component: {fileID: 6643097174412908031}
+  - component: {fileID: 154681144}
+  - component: {fileID: 154681143}
+  - component: {fileID: 6169929675480506984}
   m_Layer: 0
   m_Name: Btn_p1half
   m_TagString: Untagged
@@ -1175,6 +1233,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &154681144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097174412908029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 154681143}
+  - {fileID: 6169929675480506984}
+  sceneViewId: 14
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &154681143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097174412908029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &6169929675480506984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643097174412908029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e222aedf0a1d2b4891945592a18d8c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6643097174417504420
 GameObject:
   m_ObjectHideFlags: 0

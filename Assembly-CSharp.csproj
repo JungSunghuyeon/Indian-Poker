@@ -52,7 +52,6 @@
      <Compile Include="Assets\Script\Common_Card.cs" />
      <Compile Include="Assets\Player2Call.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
-     <Compile Include="Assets\Count.cs" />
      <Compile Include="Assets\BettingCoin.cs" />
      <Compile Include="Assets\ButtonOption.cs" />
      <Compile Include="Assets\Script\Cancle.cs" />
@@ -75,6 +74,11 @@
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
      <Compile Include="Assets\Script\Card_Get2.cs" />
+     <Compile Include="Assets\Player1Half.cs" />
+     <Compile Include="Assets\Player2Half.cs" />
+     <Compile Include="Assets\BettingNumber.cs" />
+     <Compile Include="Assets\Player1Die.cs" />
+     <Compile Include="Assets\Player2Die.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />

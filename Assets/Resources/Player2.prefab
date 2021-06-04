@@ -473,7 +473,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 518858433}
   - {fileID: 518858433}
-  sceneViewId: 3
+  sceneViewId: 13
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &518858433
@@ -730,9 +730,9 @@ GameObject:
   - component: {fileID: 5143625748324139036}
   - component: {fileID: 5143625748324139037}
   - component: {fileID: 5143625748324139038}
-  - component: {fileID: 6948250149021076772}
   - component: {fileID: 1201283947}
   - component: {fileID: 1201283946}
+  - component: {fileID: 8106229121643424996}
   m_Layer: 0
   m_Name: Btn_p2call
   m_TagString: Untagged
@@ -842,18 +842,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6948250149021076772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5143625748324139008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d6a34fe526a68f4998766c99d706ca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1201283947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,8 +861,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6948250149021076772}
   - {fileID: 1201283946}
+  - {fileID: 8106229121643424996}
   sceneViewId: 8
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -894,6 +882,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &8106229121643424996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625748324139008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6a34fe526a68f4998766c99d706ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5143625748333142690
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +906,9 @@ GameObject:
   - component: {fileID: 5143625748333142718}
   - component: {fileID: 5143625748333142719}
   - component: {fileID: 5143625748333142688}
+  - component: {fileID: 871008929}
+  - component: {fileID: 871008928}
+  - component: {fileID: 7065474585990721046}
   m_Layer: 0
   m_Name: Btn_p2half
   m_TagString: Untagged
@@ -1015,6 +1018,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &871008929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625748333142690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 871008928}
+  - {fileID: 7065474585990721046}
+  sceneViewId: 15
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &871008928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625748333142690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &7065474585990721046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625748333142690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ff0b144394ba64fa82355d19238904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5143625748733430566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1242,9 @@ GameObject:
   - component: {fileID: 5143625749612309482}
   - component: {fileID: 5143625749612309483}
   - component: {fileID: 5143625749612309484}
+  - component: {fileID: 187763475138514147}
+  - component: {fileID: 5582330783601194370}
+  - component: {fileID: 1200495416}
   m_Layer: 0
   m_Name: Btn_p2die
   m_TagString: Untagged
@@ -1296,6 +1354,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &187763475138514147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625749612309486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5582330783601194370}
+  - {fileID: 1200495416}
+  sceneViewId: 18
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5582330783601194370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625749612309486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &1200495416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143625749612309486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e20620c4100e1b49922035bd9138a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5916925220627628166
 GameObject:
   m_ObjectHideFlags: 0

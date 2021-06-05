@@ -11,6 +11,9 @@ public class BettingCoin : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         tx_betcoin = GetComponent<Text>();
+        
+    }
+     void Update() {
         tx_betcoin.text = num.ToString();
     }
 

@@ -11,6 +11,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private readonly string gameVersion = "1";
     public Button joinButton;
     public Text connectionInfoText;
+    private byte maxPlayer = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         connectionInfoText.text = "There is no empty Room, Creating New Room..";
-        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 2 });
+        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayer });
     }
     public override void OnJoinedRoom()
     {

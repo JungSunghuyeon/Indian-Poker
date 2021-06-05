@@ -9,9 +9,14 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
     public Button btn_p1call, btn_p1half, btn_p1die, btn_p2call, btn_p2half, btn_p2die;
     int p1bet, p2bet;
     int turn;
-    void Start()
+
+    void Awake()
     {
         Invoke("Firstturn", 3f);
+    }
+    void Start()
+    {
+
         btn_p1call.onClick.AddListener(p1Call);
         btn_p1half.onClick.AddListener(p1Half);
         btn_p1die.onClick.AddListener(p1Die);
@@ -35,7 +40,13 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-        p1Disable();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            p1Disable();
+        }
+        else{
+            p1Disable();
+        }
     }
     public void p1Half()
     {
@@ -51,7 +62,13 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-        p1Disable();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            p1Disable();
+        }
+        else{
+            p1Disable();
+        }
     }
     public void p1Die()
     {
@@ -63,7 +80,13 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
         {
 
         }
-        p1Disable();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            p1Disable();
+        }
+        else{
+            p1Disable();
+        }
     }
 
 
@@ -81,7 +104,13 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-        p2Disable();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            p2Disable();
+        }
+        else{
+            p2Disable();
+        }
     }
     public void p2Half()
     {
@@ -97,7 +126,13 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-        p2Disable();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            p2Disable();
+        }
+         else{
+            p2Disable();
+        }
     }
     public void p2Die()
     {
@@ -109,11 +144,18 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
         {
 
         }
-        p2Disable();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            p2Disable();
+        }
+         else{
+            p2Disable();
+        }
     }
 
     public void p1Disable()
     {             //플레이어1 버튼 비활성화, 플레이어2 버튼 활성화
+
         btn_p1call.interactable = false;
         btn_p1half.interactable = false;
         btn_p1die.interactable = false;
@@ -121,20 +163,22 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
         btn_p2call.interactable = true;
         btn_p2half.interactable = true;
         btn_p2die.interactable = true;
+
     }
     public void p2Disable()
     {            //플레이어2 버튼 비활성화, 플레이어1 버튼 활성화
-        btn_p2call.interactable = false;
-        btn_p2half.interactable = false;
-        btn_p2die.interactable = false;
-
         btn_p1call.interactable = true;
         btn_p1half.interactable = true;
         btn_p1die.interactable = true;
 
+        btn_p2call.interactable = false;
+        btn_p2half.interactable = false;
+        btn_p2die.interactable = false;
+
     }
     public void Firstturn()
     {        //첫 턴 
+
         turn = Random.Range(1, 3);
         if (turn == 1)
         {                             //플레이어 1이 첫 번째 턴
@@ -148,6 +192,7 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
             btn_p2half.interactable = true;
             btn_p2die.interactable = true;
         }
+
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -175,6 +220,8 @@ public class Click : MonoBehaviourPunCallbacks, IPunObservable
             turn = (int)stream.ReceiveNext();
             p1bet = (int)stream.ReceiveNext();
             p2bet = (int)stream.ReceiveNext();
+
+            BettingCoin.num = (int)stream.ReceiveNext();
 
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
 

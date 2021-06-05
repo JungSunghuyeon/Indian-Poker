@@ -46,7 +46,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -97,7 +96,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1684}
     - Class: 114
-      Script: {instanceID: 2152}
+      Script: {instanceID: 2154}
     - Class: 114
       Script: {instanceID: 2680}
     - Class: 114
@@ -223,19 +222,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1630}
     - Class: 114
-      Script: {instanceID: 1772}
+      Script: {instanceID: 1764}
     - Class: 114
-      Script: {instanceID: 1778}
+      Script: {instanceID: 1774}
     - Class: 114
-      Script: {instanceID: 1804}
+      Script: {instanceID: 1780}
     - Class: 114
-      Script: {instanceID: 1808}
+      Script: {instanceID: 1806}
     - Class: 114
-      Script: {instanceID: 2228}
+      Script: {instanceID: 1810}
     - Class: 114
-      Script: {instanceID: 2296}
+      Script: {instanceID: 2230}
     - Class: 114
-      Script: {instanceID: 2366}
+      Script: {instanceID: 2298}
+    - Class: 114
+      Script: {instanceID: 2368}
     - Class: 114
       Script: {instanceID: 2434}
     - Class: 114
@@ -285,11 +286,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5368}
     - Class: 114
-      Script: {instanceID: 5676}
+      Script: {instanceID: 5666}
     - Class: 114
-      Script: {instanceID: 19302}
-    - Class: 114
-      Script: {instanceID: 19310}
+      Script: {instanceID: 5678}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -342,7 +341,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1512}
     - Class: 114
-      Script: {instanceID: 2228}
+      Script: {instanceID: 2230}
     - Class: 114
       Script: {instanceID: 2680}
     - Class: 114
@@ -569,6 +568,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer
     className: SlotLanes
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2Button
   - hash:
       serializedVersion: 2
       Hash: 4fe8955e1c662935371b0936cafbb89b
@@ -1963,6 +1968,12 @@ ScriptsOnlyBuild:
     className: ProceduralController
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player1Button
+  - hash:
+      serializedVersion: 2
       Hash: 1bbce36c26e06daa73238c07c42b2bc9
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.PunBasics
@@ -1973,18 +1984,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player1Button
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player2Button
   platform: 19
   scenePathNames:
   - Assets/Scenes/Login.unity
@@ -1992,4 +1991,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/SignUp.unity
   - Assets/Scenes/GameBoard.unity
   - Assets/Scenes/rank.unity
-  playerPath: C:/Users/kyung/Desktop/build/practice.exe
+  playerPath: C:/Users/dlawl/Desktop/practice.exe

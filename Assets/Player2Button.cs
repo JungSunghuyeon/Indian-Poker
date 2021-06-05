@@ -9,6 +9,8 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
     public static Button btn_p2call, btn_p2half, btn_p2die;
 
     public static int p2bet;
+    public static bool p2state = false;
+   
     void Start()
     {
         btn_p2call = GameObject.Find("btn_p2call").GetComponent<Button>();
@@ -34,7 +36,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-
+        p2state = true;
         player2Disable();
 
     }
@@ -52,7 +54,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-
+        p2state = false;
         player2Disable();
 
     }
@@ -66,6 +68,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
         {
 
         }
+        p2state = false;
         player2Disable();
     }
 
@@ -99,7 +102,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
 
             stream.SendNext(BettingCoin.tx_betcoin.text);
 
-            
+            stream.SendNext(p2state);
 
         }
         else
@@ -120,7 +123,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
 
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
 
-           
+           p2state = (bool)stream.ReceiveNext();
 
         }
     }

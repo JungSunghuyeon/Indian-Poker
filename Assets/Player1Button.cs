@@ -10,6 +10,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
     public static Button btn_p1call, btn_p1half, btn_p1die;
 
     public static int p1bet;
+    public static bool p1state = false;
     void Start()
     {
         btn_p1call = GameObject.Find("btn_p1call").GetComponent<Button>();
@@ -34,6 +35,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
+        p1state = true;
         player1Disable();
     }
 
@@ -50,6 +52,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
+        p1state = false;
         player1Disable();
     }
 
@@ -62,6 +65,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         {
 
         }
+        p1state = false;
         player1Disable();
 
     }
@@ -96,7 +100,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
             stream.SendNext(BettingCoin.tx_betcoin.text);
 
-            
+            stream.SendNext(p1state);
 
         }
         else
@@ -119,7 +123,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
 
-           
+           p1state = (bool)stream.ReceiveNext();
 
         }
     }

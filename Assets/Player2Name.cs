@@ -17,8 +17,14 @@ public class Player2Name : MonoBehaviourPunCallbacks, IPunObservable
      public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
         
         try{
-            if(stream.IsWriting) stream.SendNext(tx_p2Name.text);
-        else tx_p2Name.text = (string)stream.ReceiveNext();
+            if(stream.IsWriting) {
+                stream.SendNext(tx_p2Name.text);
+                stream.SendNext(Login.name);
+            }
+            else {
+            tx_p2Name.text = (string)stream.ReceiveNext();
+            Login.name = (string)stream.ReceiveNext();
+         }
         }catch(System.NullReferenceException){
             
         }

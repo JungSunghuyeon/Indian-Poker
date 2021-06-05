@@ -34,11 +34,11 @@ public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
         if(stream.IsWriting) 
         {
-            
+            stream.SendNext(p_card);
         }
         else 
         {
-            
+            p_card = (int)stream.ReceiveNext();
         }
     }
 

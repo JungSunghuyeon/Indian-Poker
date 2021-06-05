@@ -13,17 +13,18 @@ public class GameManager : MonoBehaviourPunCallbacks
         
         if(PhotonNetwork.IsMasterClient){
             PhotonNetwork.Instantiate("Player1", Vector3.zero, Quaternion.identity);
-            PhotonNetwork.Instantiate("Player1_Card", Vector3.zero, Quaternion.identity);
         }
         else if (!PhotonNetwork.IsMasterClient){
             PhotonNetwork.Instantiate("Player2", Vector3.zero, Quaternion.identity);
-            PhotonNetwork.Instantiate("Player2_Card", Vector3.zero, Quaternion.identity);
         }
-        
-        
-        
+        CardSpawn();
     }
 
+    public void CardSpawn(){
+        if(!PhotonNetwork.IsMasterClient){
+            PhotonNetwork.Instantiate("Card", Vector3.zero, Quaternion.identity);
+        }
+    }
 
  
 }

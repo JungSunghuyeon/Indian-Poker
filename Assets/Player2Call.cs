@@ -25,13 +25,7 @@ public class Player2Call : MonoBehaviourPunCallbacks, IPunObservable
             BettingCoin.num += p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
         }
-         Player2Call.btn_p2call.interactable = false;
-        Player2Half.btn_p2half.interactable = false;
-        Player2Die.btn_p2die.interactable = false;
 
-        Player1Call.btn_p1call.interactable = true;
-        Player1Half.btn_p1half.interactable = true;
-        Player1Die.btn_p1die.interactable = true;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){

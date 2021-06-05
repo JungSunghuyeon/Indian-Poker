@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Console
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 678, y: 342}
   m_MaxSize: {x: 12003, y: 8042}
   vertical: 0
-  controlID: 56
+  controlID: 82
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 342}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 57
+  controlID: 16
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 58
+  controlID: 17
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -315,9 +315,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1110, y: 251.99997, z: 0}
+    m_Target: {x: 1110, y: 828, z: 0}
     speed: 2
-    m_Value: {x: 1110, y: 251.99997, z: 0}
+    m_Value: {x: 1110, y: 828, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -433,33 +433,33 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\kyung\Documents\GitHub\Indian-Poker
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 78}
-    m_SelectedIDs: 784f0000
-    m_LastClickedID: 20344
+    m_SelectedIDs: 40440000
+    m_LastClickedID: 17472
     m_ExpandedIDs: 000000004044000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scenes
-      m_OriginalName: Scenes
+      m_Name: Plugins
+      m_OriginalName: Plugins
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 20344
+      m_UserData: 17640
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000c4710000
+    m_ExpandedInstanceIDs: c6230000c4710000404c0000e84c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,7 +528,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 4}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -599,7 +599,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3e36ffff5636ffff4a38ffff5838ffff5e38ffff6a38ffff6e38ffffee3effff063ffffffa40ffff0841ffff0e41ffff1a41ffff1e41ffff1246ffff2a46ffff1e48ffff2c48ffff3248ffff3e48ffff4248ffff904cffffa84cffff9c4effffaa4effffb04effffbc4effffc04effff0e53ffff2653ffff1a55ffff2855ffff2e55ffff3a55ffff3e55ffff5258ffff6a58ffff5e5affff6c5affff725affff7e5affff825affffd05effffe85effffdc60ffffea60fffff060fffffc60ffff0061ffff4e65ffff6665ffff5a67ffff6867ffff6e67ffff7a67ffff7e67ffff8c6affffa46affff9c6cffffae6cffffb86cffffc86cffffd06cfffff86cffff6a6dffffc06fffffd86fffffd071ffffe271ffffec71fffffc71ffff0472ffffbc72ffffd472ffffc874ffffd674ffffdc74ffffe874ffffec74ffff3a79ffff5279ffff4a7bffff5c7bffff667bffff767bffff7e7bffffa67bffff147cffffbe7fffffd67fffffca81ffffd881ffffde81ffffea81ffffee81ffff3c86ffff5486ffff4888ffff5688ffff5c88ffff6888ffff6c88ffffba8cffffd28cffffc68effffd48effffda8effffe68effffea8effff3893ffff5093ffff4495ffff5295ffff5895ffff6495ffff6895ffff5e99ffff7699ffff6a9bffff789bffff7e9bffff8a9bffff8e9bffffdc9ffffff49fffffe8a1fffff6a1fffffca1ffff08a2ffff0ca2ffff62a6ffff7aa6ffff6ea8ffff7ca8ffff82a8ffff8ea8ffff92a8ffffe4acfffffcacfffff0aefffffeaeffff04afffff10afffff14afffff8cb6ffffa4b6ffff9cb8ffffaeb8ffffb8b8ffffc8b8ffffd0b8fffff8b8ffff34c0ffff3ec0ffffd6c0ffffe0c0ffffa6c4ffffecc7ffff04c8fffff8c9ffff06caffff0ccaffff18caffff1ccaffffb8ceffffd0ceffffd2ceffffd6ceffffdaceffffdeceffffe2ceffff1ccfffff34cfffff2cd1ffff3ed1ffff48d1ffff58d1ffff60d1ffff88d1ffff9ad1ffff12d6ffffb2d6ffff00d7ffff8ad8ffffdedafffff6daffffe6dcfffff4dcfffffedcffff0eddffff16ddffff40ddffff04e3ffff5ae3ffff6ee3ffffdae5fffff2e5ffffe6e7fffff4e7fffffae7ffff06e8ffff0ae8ffff56ecffff6eecffff70ecffff74ecffff78ecffff7cecffff80ecffffbaecffffd2ecffffc6eeffffd4eeffffdaeeffffe6eeffffeaeeffff3ef3ffff56f3ffff4af5ffff58f5ffff5ef5ffff6af5ffff6ef5ffff3afbffff
+      m_ExpandedIDs: ccccffffe4ccffffdaceffffe8ceffffeecefffffacefffffecefffffcd2ffff14d3ffff06d5ffff10d5ffff16d5ffff22d5ffff26d5fffffcd9ffff14daffff10dcffff22dcffff2cdcffff3cdcffff44dcffff8edcffff52f5ffff54f5ffffdcf6ffffe0f6ffff34f7ffff38f7ffff6af8ffff74f8ffff56f9ffff3afbfffff4ffffffe2430000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

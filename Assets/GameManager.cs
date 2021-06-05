@@ -24,13 +24,15 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate("Player1", Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate("Player1Button", Vector3.zero, Quaternion.identity);
         }
         else if (!PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate("Player2", Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate("Player2Button", Vector3.zero, Quaternion.identity);
         }
         CardSpawn();
-        ButtonSpawn();
+
 
     }
 
@@ -46,17 +48,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             return;
         }
     }
-    public void ButtonSpawn()
-    {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate("Button", Vector3.zero, Quaternion.identity);
-
-        }
-        else{
-            return;
-        }
-    }
+ 
 
     public override void OnLeftRoom()
     {

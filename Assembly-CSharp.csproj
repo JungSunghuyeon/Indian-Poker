@@ -43,6 +43,7 @@
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
      <Compile Include="Assets\Script\Login.cs" />
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
+     <Compile Include="Assets\Result.cs" />
      <Compile Include="Assets\Script\SignUp.cs" />
      <Compile Include="Assets\ButtonQuit.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
@@ -60,7 +61,6 @@
      <Compile Include="Assets\Script\Cancle.cs" />
      <Compile Include="Assets\Player1Name.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
-     <Compile Include="Assets\Script\Card_Get1.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
      <Compile Include="Assets\Script\Ranking.cs" />
      <Compile Include="Assets\Script\Card.cs" />
@@ -75,12 +75,12 @@
      <Compile Include="Assets\Player1Die.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
      <Compile Include="Assets\ButtonRank.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
-     <Compile Include="Assets\Script\Card_Get2.cs" />
-     <Compile Include="Assets\BettingNumber.cs" />
-     <Compile Include="Assets\P1CardNumber.cs" />
      <Compile Include="Assets\P2CardNumber.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
+     <Compile Include="Assets\P1CardNumber.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+     <Compile Include="Assets\Script\Card_Get1.cs" />
+     <Compile Include="Assets\Script\Card_Get2.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />

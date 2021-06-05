@@ -50,12 +50,16 @@ public class Ranking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        try{
        DataLoad();   
         if (textLoad)
         {
             TextLoad();
         }
         if (Time.timeScale != 0.0f) Time.timeScale = 0.0f;
+        }catch(System.NullReferenceException){
+            Debug.Log("null");
+        }
     }
     void LateUpdate()
     {
@@ -110,7 +114,7 @@ public class Ranking : MonoBehaviour
           x.Substring(x.Length - 8,5).ToString() + y.Substring(y.Length - 8, 5).ToString()));
          
         }
-        catch (NullReferenceException e)
+        catch (System.NullReferenceException e)
         {
             return;
         }

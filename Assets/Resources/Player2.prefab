@@ -115,7 +115,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6005599934106610018}
   - {fileID: 1206279113733892282}
-  sceneViewId: 4
+  sceneViewId: 23
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1206279113733892282
@@ -380,7 +380,6 @@ GameObject:
   - component: {fileID: 5143625747659832108}
   - component: {fileID: 5143625747659832109}
   - component: {fileID: 518858434}
-  - component: {fileID: 518858433}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -435,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -469,29 +468,11 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 0
-  ObservedComponents:
-  - {fileID: 518858433}
-  - {fileID: 518858433}
+  observableSearch: 2
+  ObservedComponents: []
   sceneViewId: 13
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &518858433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5143625747659832111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &5143625747760317815
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +485,7 @@ GameObject:
   - component: {fileID: 5143625747760317812}
   - component: {fileID: 5143625747760317813}
   - component: {fileID: 1823639332}
-  - component: {fileID: 1823639331}
+  - component: {fileID: 8600437752550644254}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -588,11 +569,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1823639331}
+  - {fileID: 8600437752550644254}
   sceneViewId: 10
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1823639331
+--- !u!114 &8600437752550644254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1418,7 +1399,7 @@ GameObject:
   - component: {fileID: 4531971557853474868}
   - component: {fileID: 3339513223035876039}
   - component: {fileID: 256111895110528624}
-  - component: {fileID: 7144408241165372868}
+  - component: {fileID: 8321235529298836900}
   m_Layer: 0
   m_Name: img_p2coin
   m_TagString: Untagged
@@ -1502,11 +1483,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 7144408241165372868}
+  - {fileID: 8321235529298836900}
   sceneViewId: 12
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7144408241165372868
+--- !u!114 &8321235529298836900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

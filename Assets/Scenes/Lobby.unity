@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 267647972}
   - component: {fileID: 267647974}
   - component: {fileID: 267647973}
-  - component: {fileID: 267647976}
   - component: {fileID: 267647975}
   m_Layer: 5
   m_Name: tf_userName
@@ -263,18 +262,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerText: {fileID: 267647973}
   coinText: {fileID: 1294444299}
---- !u!114 &267647976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267647971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58d5c8db4813494db8f1c436174a251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &283196675
 GameObject:
   m_ObjectHideFlags: 0

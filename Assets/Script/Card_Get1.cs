@@ -13,14 +13,16 @@ public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
 
     [SerializeField]
     private Sprite[] sprites;
-    static int p_card=0;
+    public static int p_card=0;
     void Start()
     {
+        
         img_card = GetComponent<Image>();
         p_card = card.start_card();
         Invoke("Show_Card",2);
     }
 
+   
 
     void Show_Card() {
         img_card.sprite = sprites[p_card-1];

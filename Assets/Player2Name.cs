@@ -8,25 +8,38 @@ using Photon.Realtime;
 public class Player2Name : MonoBehaviourPunCallbacks, IPunObservable
 {
     Text tx_p2Name;
+    public static string p2Name;
     void Start()
     {
         tx_p2Name = GetComponent<Text>();
-        tx_p2Name.text = Login.name;
+        p2Name = Login.name;
+        tx_p2Name.text = p2Name;
     }
 
-     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
-        
-        try{
-            if(stream.IsWriting) {
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
+        try
+        {
+            if (stream.IsWriting)
+            {
                 stream.SendNext(tx_p2Name.text);
+             
                 stream.SendNext(Login.name);
+                
             }
-            else {
-            tx_p2Name.text = (string)stream.ReceiveNext();
-            Login.name = (string)stream.ReceiveNext();
-         }
-        }catch(System.NullReferenceException){
-            
+            else
+            {
+                tx_p2Name.text = (string)stream.ReceiveNext();
+                
+                Login.name = (string)stream.ReceiveNext();
+                
+
+            }
+        }
+        catch (System.NullReferenceException)
+        {
+
         }
     }
 }

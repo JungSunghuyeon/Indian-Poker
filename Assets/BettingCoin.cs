@@ -11,16 +11,18 @@ public class BettingCoin : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         tx_betcoin = GetComponent<Text>();
-    }
-     void Update() {
         tx_betcoin.text = num.ToString();
     }
-     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
-        if(stream.IsWriting) {
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
             stream.SendNext(num);
             stream.SendNext(tx_betcoin.text);
         }
-        else {
+        else
+        {
             num = (int)stream.ReceiveNext();
             tx_betcoin.text = (string)stream.ReceiveNext();
         }

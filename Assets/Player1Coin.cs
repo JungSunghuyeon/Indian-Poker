@@ -13,14 +13,26 @@ public class Player1Coin : MonoBehaviourPunCallbacks, IPunObservable
         tx_p1Coin = GetComponent<Text>();
         tx_p1Coin.text = Login.coin;
     }
-     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
-        try{
-        if(stream.IsWriting) stream.SendNext(tx_p1Coin.text);
-        else tx_p1Coin.text = (string)stream.ReceiveNext();
-        }catch(System.NullReferenceException){
-            
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        try
+        {
+            if (stream.IsWriting)
+            {
+                stream.SendNext(tx_p1Coin.text);
+                stream.SendNext(Login.coin);
+            }
+            else
+            {
+                tx_p1Coin.text = (string)stream.ReceiveNext();
+                Login.coin = (string)stream.ReceiveNext();
+            }
+        }
+        catch (System.NullReferenceException)
+        {
+
         }
     }
 
-   
+
 }

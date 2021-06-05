@@ -6,29 +6,34 @@ using Photon.Pun;
 
 public class P2CardNumber : MonoBehaviourPunCallbacks, IPunObservable
 {
-    Text tx_p2Num;
-    int p2Num =0;
+    public static Text tx_p2Num;
+    public  static int p2Num;
     void Start()
     {
+        
         tx_p2Num = GetComponent<Text>();
         p2Num = Card_Get2.txt_card_transport();
-    }
-
-     void Update() {
         tx_p2Num.text = p2Num.ToString();
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
-        try{
-        if(stream.IsWriting) {
-           stream.SendNext(p2Num);
-            stream.SendNext(tx_p2Num.text);
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        try
+        {
+            if (stream.IsWriting)
+            {
+                stream.SendNext(p2Num);
+                stream.SendNext(tx_p2Num.text);
+            }
+            else
+            {
+                p2Num = (int)stream.ReceiveNext();
+                tx_p2Num.text = (string)stream.ReceiveNext();
+            }
         }
-        else {
-           p2Num = (int)stream.ReceiveNext();
-           tx_p2Num.text = (string)stream.ReceiveNext();
-        }
-        }catch(System.NullReferenceException){
+        catch (System.NullReferenceException)
+        {
 
         }
     }

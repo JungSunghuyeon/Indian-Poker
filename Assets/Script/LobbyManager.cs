@@ -18,30 +18,38 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         connectionInfoText.text = "connecting To Master Server";
     }
-    public override void OnConnectedToMaster(){
+    public override void OnConnectedToMaster()
+    {
         joinButton.interactable = true;
-        connectionInfoText.text ="connected to Master Server";
+        connectionInfoText.text = "connected to Master Server";
     }
-    public override void OnDisconnected(DisconnectCause cause){
+    public override void OnDisconnected(DisconnectCause cause)
+    {
         joinButton.interactable = false;
         connectionInfoText.text = $"offline : connection disabled {cause.ToString()} - try reconnecting ..";
         PhotonNetwork.ConnectUsingSettings();
     }
-    public void Connect(){
+    public void Connect()
+    {
         joinButton.interactable = false;
-        if(PhotonNetwork.IsConnected){
+        if (PhotonNetwork.IsConnected)
+        {
             connectionInfoText.text = "Connection to Random Room";
             PhotonNetwork.JoinRandomRoom();
-        }else{
+        }
+        else
+        {
             connectionInfoText.text = "offline : connection disabled - try reconnecting ..";
             PhotonNetwork.ConnectUsingSettings();
         }
     }
-    public override void OnJoinRandomFailed(short returnCode, string message){
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
         connectionInfoText.text = "There is no empty Room, Creating New Room..";
-        PhotonNetwork.CreateRoom(null, new RoomOptions{MaxPlayers = 2});
+        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 2 });
     }
-    public override void OnJoinedRoom(){
+    public override void OnJoinedRoom()
+    {
         connectionInfoText.text = "connected with Room";
         PhotonNetwork.LoadLevel("GameBoard");
     }

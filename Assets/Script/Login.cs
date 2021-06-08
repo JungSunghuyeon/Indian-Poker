@@ -18,9 +18,6 @@ public class Login : MonoBehaviour
     public static String coin;
     // Start is called before the first frame update
 
-     void Awake() {
-        Screen.SetResolution(960, 540, false);
-    }
     void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;

@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 676, y: 342}
-  m_MaxSize: {x: 12001, y: 8042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 61
+  controlID: 60
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 349
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,14 +120,14 @@ MonoBehaviour:
     y: 644
     width: 1571
     height: 303
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -223,10 +223,10 @@ MonoBehaviour:
     y: 0
     width: 1571
     height: 947
-  m_MinSize: {x: 401, y: 342}
-  m_MaxSize: {x: 8001, y: 8042}
+  m_MinSize: {x: 403, y: 492}
+  m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 70
+  controlID: 61
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,10 +248,10 @@ MonoBehaviour:
     y: 0
     width: 1571
     height: 644
-  m_MinSize: {x: 401, y: 221}
-  m_MaxSize: {x: 8001, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 71
+  controlID: 62
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 1152
     height: 644
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -433,22 +433,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\kyung\Documents\GitHub\Indian-Poker
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 46}
-    m_SelectedIDs: 78440000
-    m_LastClickedID: 17528
-    m_ExpandedIDs: 000000006044000000ca9a3b
+    m_SelectedIDs: 42440000
+    m_LastClickedID: 17474
+    m_ExpandedIDs: 000000004244000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -476,7 +476,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060440000
+    m_ExpandedIDs: 0000000042440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -597,20 +597,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: feb2ffff16b3ffff0cb5ffff1ab5ffff20b5ffff2cb5ffff30b5ffff26beffff3ebeffff40beffff44beffff48beffff4cbeffff50beffff8cbeffffa4beffff9ac0ffffa8c0ffffaec0ffffbac0ffffbec0ffff7ec9ffff96c9ffff8ccbffff9acbffffa0cbffffaccbffffb0cbffff8acfffffa2cfffffa4cfffffa8cfffffaccfffffb0cfffffb4cffffff0cfffff08d0fffffed1ffff0cd2ffff12d2ffff1ed2ffff22d2ffff7ad3ffff2cd6ffff8adcffffa2dcffffa4dcffffa8dcffffacdcffffb0dcffffb4dcfffff0dcffff08ddfffffedeffff0cdfffff12dfffff1edfffff22dfffff58e1ffffece9ffff04eafffffaebffff08ecffff0eecffff1aecffff1eecffff3af2ffff52f2ffff54f2ffff58f2ffff5cf2ffff60f2ffff64f2ffff9ef2ffffb6f2ffffacf4ffffbaf4ffffc0f4ffffccf4ffffd0f4ffff3afbffff90430000c0430000f043000014440000486e0000786e0000a86e0000cc6e000092750000c2750000ee750000a8840000dc840000e88400000c8500001e8500003c8700000c880000308800000092000024920000eaa00000ecaa000024ab000050ab0000
+      m_SelectedIDs: 80760000
+      m_LastClickedID: 30336
+      m_ExpandedIDs: 56d1ffff3ad2ffff6cd4ffff82d4ffff94d4ffffa4d4ffffb4d4ffff0cd7ffff1ed7ffff32d7ffff42d7ffff52d7ffff62d7ffff72d7ffff84d7ffff94d7ffff78e8ffff9ae9fffface9ffffbce9ffffeae9ffff6eeaffff7eeaffff8eeaffffa0eaffff48f2fffff0f2ffff24f4ffffa2f4ffffaef6ffffbef6ffffcef6ffffdef6ffffeef6ffff86f7ffffecf7ffff66f8ffff2afaffff3afbffffde430000285800003a5800008e580000f6580000645900007659000092590000c05c0000285d0000385e00004a5e0000665e00009a5e0000025f0000786000008264000094640000b06400002c6800003c6800009e680000066900005c6900006e69000078690000aa690000cc690000dc690000f0690000fa6900000a6a0000ac710000be710000da710000167600002876000044760000787600009c760000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: login_btn
-        m_OriginalName: login_btn
+        m_Name: EventSystem
+        m_OriginalName: EventSystem
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 41238
+        m_UserData: 30350
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0

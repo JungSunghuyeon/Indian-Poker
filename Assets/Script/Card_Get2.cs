@@ -6,38 +6,44 @@ using Photon.Pun;
 
 public class Card_Get2 : MonoBehaviourPunCallbacks, IPunObservable
 {
-    
+
     private Image img_card;
     Common_Card card = new Common_Card();
     // Start is called before the first frame update
-    
+
     [SerializeField]
     private Sprite[] sprites;
-    public static int p_card=0;
+    public static int p_card = 0;
     void Start()
     {
-     
+
         img_card = GetComponent<Image>();
+        img_card.sprite = Resources.Load<Sprite>("Images/back");
         p_card = card.start_card();
-        Invoke("Show_Card",2);
+        if(PhotonNetwork.IsMasterClient){
+            Invoke("Show_Card", 2);
+        }
     }
 
-  
 
-    void Show_Card() {
-        img_card.sprite = sprites[p_card-1];
-            
+
+    void Show_Card()
+    {
+        img_card.sprite = sprites[p_card - 1];
+
     }
 
-    public static int txt_card_transport(){
+    public static int txt_card_transport()
+    {
         return p_card;
     }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
-        if(stream.IsWriting) 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
         {
-           stream.SendNext(p_card);
+            stream.SendNext(p_card);
         }
-        else 
+        else
         {
             p_card = (int)stream.ReceiveNext();
         }

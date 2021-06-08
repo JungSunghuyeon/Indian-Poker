@@ -24,48 +24,103 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
         p2usercoin = int.Parse(Login.coin);
     }
 
-    public void p2Call()
-    {
+     public void p2Call(){
+            if (BettingCoin.num == 0)
+            {
+                if(p2usercoin < 0 ) {
+                    p2usercoin = 0;
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                    p2bet = 0;
+                }
+                else if(p2bet >= p2usercoin) {
+                    p2bet = p2usercoin;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+                else {
+                    p2bet = 1;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+            }
+            else
+            {
+                if(p2usercoin < 0 ) {
+                    p2usercoin = 0;
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                    p2bet = 0;
+                }
+                else if(p2bet >= p2usercoin) {
+                    p2bet = p2usercoin;
+                    p2usercoin -= p2bet;
+                    BettingCoin.num += p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+                else {
+                    p2bet = Player1Button.p1bet;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+            }
+            p2state = true;
+            player2Disable();
         
-        if (BettingCoin.num == 0)
-        {
-            p2bet = 1;
-            BettingCoin.num += p2bet;
-            p2usercoin -= p2bet;
-            BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
-            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
-        }
-        else
-        {
-            p2bet = Player1Button.p1bet;
-            BettingCoin.num += p2bet;
-            p2usercoin -= p2bet;
-            BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
-            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
-        }
-        p2state = true;
-        player2Disable();
-
     }
+
+    
     public void p2Half()
     {
-       
         if (BettingCoin.num == 0)
-        {
-            p2bet = 2;
-            BettingCoin.num += p2bet;
-            p2usercoin -= p2bet;
-            BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
-            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
-        }
-        else
-        {
-            p2bet = Player1Button.p1bet + 1;
-            BettingCoin.num += p2bet;
-            p2usercoin -= p2bet;
-            BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
-            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
-        }
+            {
+                if(p2usercoin < 0 ) {
+                    p2usercoin = 0;
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                    p2bet = 0;
+                }
+                else if(p2bet >= p2usercoin) {
+                    p2bet = p2usercoin;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+                else {
+                    p2bet = 2;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+            }
+            else
+            {
+                if(p2usercoin < 0 ) {
+                    p2usercoin = 0;
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                    p2bet = 0;
+                }
+                else if(Player1Button.p1bet >= p2usercoin) {
+                    p2bet = p2usercoin;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+                else {
+                    p2bet = Player1Button.p1bet+2;
+                    BettingCoin.num += p2bet;
+                    p2usercoin -= p2bet;
+                    BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+                    Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
+                }
+            }
         p2state = false;
         player2Disable();
 

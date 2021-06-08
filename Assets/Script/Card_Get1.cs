@@ -22,7 +22,6 @@ public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
         if(!PhotonNetwork.IsMasterClient){
             Invoke("Show_Card", 2);
         }
-        
     }
 
 

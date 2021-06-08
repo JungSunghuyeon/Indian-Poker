@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class Player2Coin : MonoBehaviourPunCallbacks, IPunObservable
 {
-    Text tx_p2Coin;
+    public static Text tx_p2Coin;
     void Start()
     {
         tx_p2Coin = GetComponent<Text>();

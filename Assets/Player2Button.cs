@@ -10,6 +10,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
 
     public static int p2bet;
     public static bool p2state = false;
+    public static int p2usercoin;
    
     void Start()
     {
@@ -20,21 +21,27 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p2call.onClick.AddListener(p2Call);
         btn_p2half.onClick.AddListener(p2Half);
         btn_p2die.onClick.AddListener(p2Die);
+        p2usercoin = int.Parse(Login.coin);
     }
 
     public void p2Call()
     {
+        
         if (BettingCoin.num == 0)
         {
             p2bet = 1;
             BettingCoin.num += p2bet;
+            p2usercoin -= p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
         }
         else
         {
             p2bet = Player1Button.p1bet;
             BettingCoin.num += p2bet;
+            p2usercoin -= p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
         }
         p2state = true;
         player2Disable();
@@ -42,17 +49,22 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void p2Half()
     {
+       
         if (BettingCoin.num == 0)
         {
             p2bet = 2;
             BettingCoin.num += p2bet;
+            p2usercoin -= p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
         }
         else
         {
             p2bet = Player1Button.p1bet + 1;
             BettingCoin.num += p2bet;
+            p2usercoin -= p2bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player2Coin.tx_p2Coin.text = p2usercoin.ToString();
         }
         p2state = false;
         player2Disable();
@@ -95,6 +107,9 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(btn_p2half.interactable);
             stream.SendNext(btn_p2die.interactable);
 
+            stream.SendNext(p2usercoin);
+            stream.SendNext(Player2Coin.tx_p2Coin.text);
+
            
             stream.SendNext(Player1Button.p1bet);
             stream.SendNext(p2bet);
@@ -114,6 +129,9 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
             btn_p2call.interactable = (bool)stream.ReceiveNext();
             btn_p2half.interactable = (bool)stream.ReceiveNext();
             btn_p2die.interactable = (bool)stream.ReceiveNext();
+
+            p2usercoin = (int)stream.ReceiveNext();
+            Player2Coin.tx_p2Coin.text = (string)stream.ReceiveNext();
 
             
             Player1Button.p1bet = (int)stream.ReceiveNext();

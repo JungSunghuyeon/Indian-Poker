@@ -11,6 +11,8 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
     public static int p1bet;
     public static bool p1state = false;
+
+    public static int p1usercoin;
     void Start()
     {
         btn_p1call = GameObject.Find("btn_p1call").GetComponent<Button>();
@@ -20,20 +22,26 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p1call.onClick.AddListener(p1Call);
         btn_p1half.onClick.AddListener(p1Half);
         btn_p1die.onClick.AddListener(p1Die);
+        p1usercoin = int.Parse(Login.coin);
     }
 
     public void p1Call(){
+       
         if (BettingCoin.num == 0)
         {
             p1bet = 1;
             BettingCoin.num += p1bet;
+            p1usercoin -= p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player1Coin.tx_p1Coin.text = p1usercoin.ToString();
         }
         else
         {
             p1bet = Player2Button.p2bet;
             BettingCoin.num += p1bet;
+            p1usercoin -= p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player1Coin.tx_p1Coin.text = p1usercoin.ToString();
         }
         p1state = true;
         player1Disable();
@@ -44,13 +52,17 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         {
             p1bet = 2;
             BettingCoin.num += p1bet;
+            p1usercoin -= p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player1Coin.tx_p1Coin.text = p1usercoin.ToString();
         }
         else
         {
             p1bet = Player2Button.p2bet + 2;
             BettingCoin.num += p1bet;
+            p1usercoin -= p1bet;
             BettingCoin.tx_betcoin.text = BettingCoin.num.ToString();
+            Player1Coin.tx_p1Coin.text = p1usercoin.ToString();
         }
         p1state = false;
         player1Disable();
@@ -93,7 +105,9 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(Player2Button.btn_p2half.interactable);
             stream.SendNext(Player2Button.btn_p2die.interactable);
 
-           
+            stream.SendNext(p1usercoin);
+            stream.SendNext(Player1Coin.tx_p1Coin.text);
+
             stream.SendNext(p1bet);
             stream.SendNext(Player2Button.p2bet);
             stream.SendNext(BettingCoin.num);
@@ -114,6 +128,9 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             Player2Button.btn_p2call.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2half.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2die.interactable = (bool)stream.ReceiveNext();
+
+            p1usercoin = (int)stream.ReceiveNext();
+            Player1Coin.tx_p1Coin.text = (string)stream.ReceiveNext();
 
             
             p1bet = (int)stream.ReceiveNext();

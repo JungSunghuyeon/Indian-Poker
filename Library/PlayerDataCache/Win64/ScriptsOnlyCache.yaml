@@ -48,7 +48,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -111,7 +110,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3390}
     - Class: 114
-      Script: {instanceID: 5106}
+      Script: {instanceID: 5110}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -160,11 +159,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3398}
     - Class: 114
-      Script: {instanceID: 4382}
+      Script: {instanceID: 4386}
     - Class: 114
-      Script: {instanceID: 4412}
+      Script: {instanceID: 4416}
     - Class: 114
-      Script: {instanceID: 4870}
+      Script: {instanceID: 4874}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -265,37 +264,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3398}
     - Class: 114
-      Script: {instanceID: 3604}
+      Script: {instanceID: 3554}
     - Class: 114
-      Script: {instanceID: 3972}
+      Script: {instanceID: 3606}
     - Class: 114
-      Script: {instanceID: 4240}
+      Script: {instanceID: 3974}
     - Class: 114
-      Script: {instanceID: 4356}
+      Script: {instanceID: 4196}
     - Class: 114
-      Script: {instanceID: 4362}
+      Script: {instanceID: 4244}
     - Class: 114
-      Script: {instanceID: 4528}
+      Script: {instanceID: 4360}
     - Class: 114
-      Script: {instanceID: 4566}
+      Script: {instanceID: 4366}
     - Class: 114
-      Script: {instanceID: 4628}
+      Script: {instanceID: 4532}
     - Class: 114
-      Script: {instanceID: 5106}
+      Script: {instanceID: 4570}
     - Class: 114
-      Script: {instanceID: 5154}
+      Script: {instanceID: 4632}
     - Class: 114
-      Script: {instanceID: 5280}
+      Script: {instanceID: 5110}
     - Class: 114
-      Script: {instanceID: 5368}
+      Script: {instanceID: 5158}
     - Class: 114
-      Script: {instanceID: 5666}
+      Script: {instanceID: 5284}
     - Class: 114
-      Script: {instanceID: 5678}
+      Script: {instanceID: 5372}
     - Class: 114
-      Script: {instanceID: 19274}
+      Script: {instanceID: 5670}
     - Class: 114
-      Script: {instanceID: 20478}
+      Script: {instanceID: 5682}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -362,7 +361,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3398}
     - Class: 114
-      Script: {instanceID: 3576}
+      Script: {instanceID: 3578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -411,9 +410,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3398}
     - Class: 114
-      Script: {instanceID: 4016}
+      Script: {instanceID: 4018}
     - Class: 114
-      Script: {instanceID: 4226}
+      Script: {instanceID: 4230}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1183,6 +1182,12 @@ ScriptsOnlyBuild:
     className: PingProperty
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2ID
+  - hash:
+      serializedVersion: 2
       Hash: 72f0e262cec16c9f4520dc3bf2b81796
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer.Utils
@@ -1415,6 +1420,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: TextToggleIsOnTransition
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player1ID
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -1991,18 +2002,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player1ID
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player2ID
   platform: 19
   scenePathNames:
   - Assets/Scenes/Login.unity
@@ -2010,4 +2009,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/SignUp.unity
   - Assets/Scenes/GameBoard.unity
   - Assets/Scenes/rank.unity
-  playerPath: C:/Users/dlawl/Desktop/build/practice.exe
+  playerPath: C:/Users/kyung/Desktop/build/practice.exe

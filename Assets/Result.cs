@@ -20,14 +20,13 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
 
     public void Update() {
         if(Player1Button.p1state == true && Player2Button.p2state == true){
-            Debug.Log(P1CardNumber.p1Num);
-            Debug.Log(P2CardNumber.p2Num);
             if(P1CardNumber.p1Num > P2CardNumber.p2Num){
                 tx_result.text = Player1Name.tx_p1Name.text + "승리";
                 int winCoin = int.Parse(Player1Coin.tx_p1Coin.text) + BettingCoin.num;
                 int loseCoin = int.Parse(Player2Coin.tx_p2Coin.text);
                 coinUpdate(Player1ID.player1ID, winCoin);
                 coinUpdate(Player2ID.player2ID, loseCoin);
+                Invoke("onLeftRoom", 2);
             }
             else if(P1CardNumber.p1Num < P2CardNumber.p2Num){
                 tx_result.text = Player2Name.tx_p2Name.text + "승리";
@@ -35,11 +34,25 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
                 int loseCoin = int.Parse(Player1Coin.tx_p1Coin.text);
                 coinUpdate(Player2ID.player2ID, winCoin);
                 coinUpdate(Player1ID.player1ID, loseCoin);
+                Invoke("onLeftRoom", 2);
             }
             else{
                 tx_result.text = "무승부";
+                Invoke("onLeftRoom", 2);
             }
         }
+    }
+
+    public void init_Game() {
+        Player1Button.p1state = false;
+        Player2Button.p2state = false;
+        BettingCoin.num = 0;
+    }
+    
+    public  void onLeftRoom() {
+        init_Game();
+        PhotonNetwork.Disconnect();
+        PhotonNetwork.LoadLevel(0);
     }
 
     void coinUpdate(string playerID, int coin){

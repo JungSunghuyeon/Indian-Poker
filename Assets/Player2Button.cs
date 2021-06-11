@@ -8,6 +8,8 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static Button btn_p2call, btn_p2half, btn_p2die;
 
+    public GameObject button_p2call, button_p2half, button_p2die;
+
     public static int p2bet;
     public static bool p2state = false;
     public static int p2usercoin;
@@ -18,9 +20,17 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p2half = GameObject.Find("btn_p2half").GetComponent<Button>();
         btn_p2die = GameObject.Find("btn_p2die").GetComponent<Button>();
 
+        button_p2call = GameObject.Find("btn_p2call");
+        button_p2half = GameObject.Find("btn_p2half");
+        button_p2die = GameObject.Find("btn_p2die");
+        
+        if(PhotonNetwork.IsMasterClient){
+            button_p2call.SetActive(false);
+            button_p2half.SetActive(false);
+            button_p2die.SetActive(false);
+        }
+
         btn_p2call.onClick.AddListener(p2Call);
-
-
         btn_p2half.onClick.AddListener(p2Half);
         btn_p2die.onClick.AddListener(p2Die);
         p2usercoin = int.Parse(Login.coin);

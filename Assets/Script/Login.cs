@@ -16,6 +16,7 @@ public class Login : MonoBehaviour
     public static bool isLogin = false;
     public static string name;
     public static String coin;
+    public static String player_id;
     // Start is called before the first frame update
 
     void Start()
@@ -41,6 +42,7 @@ public class Login : MonoBehaviour
                 foreach(DataSnapshot data in snapshot.Children){
                     IDictionary member = (IDictionary)data.Value;
                     if(member["id"].ToString().Equals(id) && member["pwd"].ToString().Equals(pwd)){
+                        player_id = id;
                         name = member["name"].ToString();
                         coin = member["coin"].ToString();
                         Debug.Log("login Success");

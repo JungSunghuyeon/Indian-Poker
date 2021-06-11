@@ -9,6 +9,8 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static Button btn_p1call, btn_p1half, btn_p1die;
 
+    public GameObject button_p1call, button_p1half, button_p1die;
+
     public static int p1bet;
     public static bool p1state = false;
 
@@ -18,6 +20,16 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p1call = GameObject.Find("btn_p1call").GetComponent<Button>();
         btn_p1half = GameObject.Find("btn_p1half").GetComponent<Button>();
         btn_p1die = GameObject.Find("btn_p1die").GetComponent<Button>();
+
+        button_p1call = GameObject.Find("btn_p1call");
+        button_p1half = GameObject.Find("btn_p1half");
+        button_p1die = GameObject.Find("btn_p1die");
+
+        if(!PhotonNetwork.IsMasterClient){
+            button_p1call.SetActive(false);
+            button_p1half.SetActive(false);
+            button_p1die.SetActive(false);
+        }
 
         btn_p1call.onClick.AddListener(p1Call);
         btn_p1half.onClick.AddListener(p1Half);

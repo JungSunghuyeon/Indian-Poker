@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Photon.Pun;
 
 public class Common_Card : MonoBehaviour
 {
-    
+    int num=0;
    // Start is called before the first frame update
     Card card = new Card();
     public int start_card()
     {
-        int num=0;
+        
         card.create();
         try {
            num = card.deal();
@@ -20,4 +22,5 @@ public class Common_Card : MonoBehaviour
      return num;   
     }
     
+
 }

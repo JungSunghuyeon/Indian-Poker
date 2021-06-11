@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class Player2Name : MonoBehaviourPunCallbacks, IPunObservable
 {
-    Text tx_p2Name;
+    public static Text tx_p2Name;
     public static string p2Name;
     void Start()
     {

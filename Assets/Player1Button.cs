@@ -20,33 +20,9 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p1die = GameObject.Find("btn_p1die").GetComponent<Button>();
 
         btn_p1call.onClick.AddListener(p1Call);
-        btn_p1call.onClick.AddListener(result);
-
         btn_p1half.onClick.AddListener(p1Half);
         btn_p1die.onClick.AddListener(p1Die);
         p1usercoin = int.Parse(Login.coin);
-    }
-    public void result()
-    {
-        if (Player1Button.p1state == true && Player2Button.p2state == true)
-        {
-            Debug.Log(P1CardNumber.p1Num);
-            Debug.Log(P2CardNumber.p2Num);
-            if (P1CardNumber.p1Num > P2CardNumber.p2Num)
-            {
-
-                Result.tx_result.text = Player1Name.p1Name + "승리";
-            }
-            else if (P1CardNumber.p1Num < P2CardNumber.p2Num)
-            {
-
-                Result.tx_result.text = Player2Name.p2Name + "승리";
-            }
-            else
-            {
-                Result.tx_result.text = "무승부";
-            }
-        }
     }
 
     public void p1Call()
@@ -159,7 +135,6 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
                 Player1Coin.tx_p1Coin.text = p1usercoin.ToString();
             }
         }
-        p1state = false;
         player1Disable();
     }
 
@@ -173,7 +148,6 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         {
 
         }
-        p1state = false;
         player1Disable();
 
     }
@@ -193,9 +167,9 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-
+           
             stream.SendNext(p1state);
-            stream.SendNext(Player2Button.p2state);
+            
 
             stream.SendNext(btn_p1call.interactable);
             stream.SendNext(btn_p1half.interactable);
@@ -216,17 +190,13 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
             
 
-            stream.SendNext(P1CardNumber.p1Num);
-            stream.SendNext(P2CardNumber.p2Num);
-            stream.SendNext(Player1Name.p1Name);
-            stream.SendNext(Player2Name.p2Name);
-            stream.SendNext(Result.tx_result.text);
+            
         }
         else
         {
-
+           
             p1state = (bool)stream.ReceiveNext();
-            Player2Button.p2state = (bool)stream.ReceiveNext();
+            
 
             btn_p1call.interactable = (bool)stream.ReceiveNext();
             btn_p1half.interactable = (bool)stream.ReceiveNext();
@@ -249,11 +219,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
             
 
-            P1CardNumber.p1Num = (int)stream.ReceiveNext();
-            P2CardNumber.p2Num = (int)stream.ReceiveNext();
-            Player1Name.p1Name = (string)stream.ReceiveNext();
-            Player2Name.p2Name = (string)stream.ReceiveNext();
-            Result.tx_result.text = (string)stream.ReceiveNext();
+           
 
         }
     }

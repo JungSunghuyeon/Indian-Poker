@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 
@@ -35,9 +36,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
             Invoke("Firstturn",5f);
         }
         CardSpawn();
-
-        
-
+        Invoke("ResultSpawn", 3f);
     }
 
     public void Firstturn(){
@@ -46,6 +45,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
             Player1Button.btn_p1call.interactable = true;
             Player1Button.btn_p1half.interactable = true;
             Player1Button.btn_p1die.interactable = true;
+
         }
         else if(turn == 2){
             Player2Button.btn_p2call.interactable = true;
@@ -63,6 +63,18 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
     }
+
+    public void ResultSpawn()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate("Result", Vector3.zero, Quaternion.identity);
+        }
+        else{
+            return;
+        }
+    }
+ 
  
 
     public override void OnLeftRoom()

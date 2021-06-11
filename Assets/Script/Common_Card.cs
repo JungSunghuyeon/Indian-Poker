@@ -19,5 +19,5 @@ public class Common_Card : MonoBehaviour
         }
      return num;   
     }
-
+    
 }

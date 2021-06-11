@@ -8,6 +8,7 @@ using Firebase.Database;
 
 public class SignUp: MonoBehaviour
 {
+    GameObject Available_Diaolg;
     DatabaseReference reference;
     public InputField id_text2;
     public InputField name_text;

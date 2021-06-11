@@ -35,8 +35,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
             Invoke("Firstturn",5f);
         }
         CardSpawn();
-        
-        
+
         
 
     }
@@ -59,7 +58,6 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
         if (!PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate("Card", Vector3.zero, Quaternion.identity);
-
         }
         else{
             return;

@@ -14,6 +14,7 @@ public class P1CardNumber : MonoBehaviourPunCallbacks, IPunObservable
         tx_p1Num = GetComponent<Text>();
         p1Num = Card_Get1.txt_card_transport();
         tx_p1Num.text = p1Num.ToString();
+        //Debug.Log("p1카드 " + P1CardNumber.p1Num);
     }
 
 

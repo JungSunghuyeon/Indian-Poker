@@ -10,10 +10,10 @@ public class P2CardNumber : MonoBehaviourPunCallbacks, IPunObservable
     public  static int p2Num;
     void Start()
     {
-        
         tx_p2Num = GetComponent<Text>();
         p2Num = Card_Get2.txt_card_transport();
         tx_p2Num.text = p2Num.ToString();
+        //Debug.Log("p2카드 " +P2CardNumber.p2Num);
     }
 
 

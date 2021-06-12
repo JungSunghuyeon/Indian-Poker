@@ -39,7 +39,6 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
                 Player1Coin.tx_p1Coin.text = winCoin.ToString();
                 coinUpdate(Player1ID.player1ID, winCoin);
                 coinUpdate(Player2ID.player2ID, loseCoin);
-                
             }
             else if (P1CardNumber.p1Num < P2CardNumber.p2Num)
             {

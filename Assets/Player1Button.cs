@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System;
 
 
 
@@ -14,6 +15,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
     public static int p1bet;
     public static bool p1state = false;
+    public static bool p1die_state = false;
 
     public static int p1usercoin;
     void Start()
@@ -35,7 +37,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p1call.onClick.AddListener(p1Call);
         btn_p1half.onClick.AddListener(p1Half);
         btn_p1die.onClick.AddListener(p1Die);
-        p1usercoin = int.Parse(Player1Coin.tx_p1Coin.text);
+        int.TryParse(Player1Coin.tx_p1Coin.text, out p1usercoin);
     }
 
     public void p1Call()
@@ -153,14 +155,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
 
     public void p1Die()
     {
-        if (BettingCoin.num == 0)
-        {
-
-        }
-        else
-        {
-
-        }
+        p1die_state = true;
         player1Disable();
 
     }
@@ -180,6 +175,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
+            try{
             stream.SendNext(p1state);
 
             stream.SendNext(Player1Button.btn_p1call.interactable);
@@ -196,9 +192,14 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(Player2Button.p2bet);
             stream.SendNext(BettingCoin.num);
             stream.SendNext(BettingCoin.tx_betcoin.text);
+            }catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
         else
         {
+            try{
             p1state = (bool)stream.ReceiveNext();
 
             Player1Button.btn_p1call.interactable = (bool)stream.ReceiveNext();
@@ -215,6 +216,10 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             Player2Button.p2bet = (int)stream.ReceiveNext();
             BettingCoin.num = (int)stream.ReceiveNext();
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
+            } catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System;
 
 public class BettingCoin : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -11,9 +12,6 @@ public class BettingCoin : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         tx_betcoin = GetComponent<Text>();
-        
-    }
-     void Update() {
         tx_betcoin.text = num.ToString();
     }
 
@@ -21,13 +19,25 @@ public class BettingCoin : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
+            try{
             stream.SendNext(num);
             stream.SendNext(tx_betcoin.text);
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
         else
         {
+            try{
             num = (int)stream.ReceiveNext();
             tx_betcoin.text = (string)stream.ReceiveNext();
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
     }
 }

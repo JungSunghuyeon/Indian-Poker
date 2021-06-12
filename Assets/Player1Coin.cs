@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 
 public class Player1Coin : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -12,32 +13,46 @@ public class Player1Coin : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         tx_p1Coin = GetComponent<Text>();
-        if(PhotonNetwork.IsMasterClient){
+        if (PhotonNetwork.IsMasterClient)
+        {
             p1Coin = Login.coin;
             tx_p1Coin.text = p1Coin;
         }
-        
+
 
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        try
+
+        if (stream.IsWriting)
         {
-            if (stream.IsWriting)
+            try
             {
+                
                 stream.SendNext(tx_p1Coin.text);
                 stream.SendNext(p1Coin);
+                
             }
-            else
+            catch (NullReferenceException ex)
             {
+                Debug.Log("");
+            }
+        }
+        else
+        {
+            try
+            {
+                
                 tx_p1Coin.text = (string)stream.ReceiveNext();
                 p1Coin = (string)stream.ReceiveNext();
+                
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
             }
         }
-        catch (System.NullReferenceException)
-        {
 
-        }
     }
 
 

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System;
 
 public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
 {
 
-    private Image img_card;
+    Image img_card;
     Common_Card card = new Common_Card();
     // Start is called before the first frame update
 
@@ -19,11 +20,22 @@ public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
         img_card = GetComponent<Image>();
         img_card.sprite = Resources.Load<Sprite>("Images/back");
         p_card = card.start_card();
-        if(!PhotonNetwork.IsMasterClient){
+        if (!PhotonNetwork.IsMasterClient)
+        {
             Invoke("Show_Card", 2);
         }
     }
 
+    void Update()
+    {
+        if (Player1Button.p1state == true && Player2Button.p2state == true)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Show_Card();
+            }
+        }
+    }
 
 
     void Show_Card()
@@ -41,11 +53,25 @@ public class Card_Get1 : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(p_card);
+            try
+            {
+                stream.SendNext(p_card);
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
         else
         {
-            p_card = (int)stream.ReceiveNext();
+            try
+            {
+                p_card = (int)stream.ReceiveNext();
+            }
+           catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
     }
 

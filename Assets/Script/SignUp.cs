@@ -10,7 +10,7 @@ using System;
 
 public class SignUp : MonoBehaviour
 {
-    public GameObject Available, check;
+    public GameObject Available,NotAvailable, check;
     DatabaseReference reference;
     public InputField id_text2;
     public InputField name_text;
@@ -20,17 +20,23 @@ public class SignUp : MonoBehaviour
     private int dafaultCoin = 30;
     public void Awake(){
         Available = GameObject.Find("Avail");
+        NotAvailable = GameObject.Find("NotAvail");
         check = GameObject.Find("Check");
         Available.SetActive(false);
+        NotAvailable.SetActive(false);
         check.SetActive(false);
     }
     public void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
-        
     }
-    
-    
+    private ConcurrentQueue<Action> mainThreadActions = new ConcurrentQueue<Action>();
+
+    private void Update(){
+        while(mainThreadActions.Count > 0 && mainThreadActions.TryDequeue(out var action)){
+            action?.Invoke();
+        }
+    }    
     public void Change()
     {
         SceneManager.LoadScene("SignUp");
@@ -80,31 +86,35 @@ public class SignUp : MonoBehaviour
         reference = FirebaseDatabase.DefaultInstance.RootReference.Child("member");
         reference.GetValueAsync().ContinueWith(task =>
         {
-            if (task.IsCompleted)
+            mainThreadActions.Enqueue(() =>
             {
-                DataSnapshot snapshot = task.Result;
-                foreach (DataSnapshot data in snapshot.Children)
+                if (task.IsCompleted)
                 {
-                    IDictionary member = (IDictionary)data.Value;
-                    Debug.Log("member = " + member["id"]);
-                    Debug.Log("id = " + id);
-                    
-                    if (member["id"].Equals(id))
+                    DataSnapshot snapshot = task.Result;
+                    foreach (DataSnapshot data in snapshot.Children)
                     {
-                        check++;
-                        break;
+                        IDictionary member = (IDictionary)data.Value;
+                        Debug.Log("member = " + member["id"]);
+                        Debug.Log("id = " + id);
+                        
+                        if (member["id"].Equals(id))
+                        {
+                            check++;
+                            break;
+                        }
+                    }
+                    if (check != 0)
+                    {
+                        NotAvailable.SetActive(true);
+                        id_check = false;
+                    }
+                    else
+                    {
+                        Available.SetActive(true);
+                        id_check = true;
                     }
                 }
-                if (check != 0)
-                {
-                    id_check = false;
-                }
-                else
-                {
-                    
-                    id_check = true;
-                }
-            }
+            });
         });
          
     }

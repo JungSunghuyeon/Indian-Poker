@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System;
 
 public class P1CardNumber : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static Text tx_p1Num;
-    public  static int p1Num;
+    public static int p1Num;
 
     void Start()
     {
@@ -20,22 +21,32 @@ public class P1CardNumber : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        try
+
+        if (stream.IsWriting)
         {
-            if (stream.IsWriting)
+            try
             {
                 stream.SendNext(p1Num);
                 stream.SendNext(tx_p1Num.text);
             }
-            else
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
+        }
+        else
+        {
+            try
             {
                 p1Num = (int)stream.ReceiveNext();
                 tx_p1Num.text = (string)stream.ReceiveNext();
             }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
-        catch (System.NullReferenceException)
-        {
 
-        }
+
     }
 }

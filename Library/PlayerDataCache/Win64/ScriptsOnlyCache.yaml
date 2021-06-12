@@ -14,8 +14,10 @@ ScriptsOnlyBuild:
     - GameManager
     - LobbyManager
     - Login
+    - NotAvailButton
     - P1CardNumber
     - P2CardNumber
+    - Player1Audio
     - Player1Button
     - Player1Coin
     - Player1ID
@@ -50,6 +52,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -98,21 +101,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1510}
     - Class: 114
+      Script: {instanceID: 1512}
+    - Class: 114
       Script: {instanceID: 1684}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3280}
+      Script: {instanceID: 3282}
     - Class: 114
-      Script: {instanceID: 3288}
+      Script: {instanceID: 3290}
     - Class: 114
-      Script: {instanceID: 3394}
-    - Class: 114
-      Script: {instanceID: 5114}
+      Script: {instanceID: 3396}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -120,6 +123,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -151,21 +156,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2654}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3288}
+      Script: {instanceID: 3290}
     - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 4390}
+      Script: {instanceID: 4392}
     - Class: 114
-      Script: {instanceID: 4420}
+      Script: {instanceID: 4422}
     - Class: 114
-      Script: {instanceID: 4878}
+      Script: {instanceID: 4880}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -209,6 +214,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -236,67 +245,67 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2154}
     - Class: 114
-      Script: {instanceID: 2230}
-    - Class: 114
       Script: {instanceID: 2298}
     - Class: 114
       Script: {instanceID: 2368}
     - Class: 114
       Script: {instanceID: 2434}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2692}
+      Script: {instanceID: 2694}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 3100}
     - Class: 114
-      Script: {instanceID: 3252}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 3280}
-    - Class: 114
-      Script: {instanceID: 3288}
+      Script: {instanceID: 3282}
     - Class: 114
       Script: {instanceID: 3290}
     - Class: 114
-      Script: {instanceID: 3374}
+      Script: {instanceID: 3292}
     - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 3558}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 3610}
+      Script: {instanceID: 3560}
     - Class: 114
-      Script: {instanceID: 3978}
+      Script: {instanceID: 3612}
     - Class: 114
-      Script: {instanceID: 4200}
+      Script: {instanceID: 3980}
     - Class: 114
-      Script: {instanceID: 4248}
+      Script: {instanceID: 4202}
     - Class: 114
-      Script: {instanceID: 4364}
+      Script: {instanceID: 4250}
     - Class: 114
-      Script: {instanceID: 4370}
+      Script: {instanceID: 4366}
     - Class: 114
-      Script: {instanceID: 4536}
+      Script: {instanceID: 4372}
     - Class: 114
-      Script: {instanceID: 4574}
+      Script: {instanceID: 4538}
     - Class: 114
-      Script: {instanceID: 4636}
+      Script: {instanceID: 4576}
     - Class: 114
-      Script: {instanceID: 5114}
+      Script: {instanceID: 4638}
     - Class: 114
-      Script: {instanceID: 5162}
+      Script: {instanceID: 5116}
     - Class: 114
-      Script: {instanceID: 5288}
+      Script: {instanceID: 5164}
     - Class: 114
-      Script: {instanceID: 5376}
+      Script: {instanceID: 5290}
     - Class: 114
-      Script: {instanceID: 5674}
+      Script: {instanceID: 5378}
     - Class: 114
-      Script: {instanceID: 5686}
+      Script: {instanceID: 5676}
+    - Class: 114
+      Script: {instanceID: 5688}
+    - Class: 114
+      Script: {instanceID: 67658}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -353,21 +362,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2474}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2678}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 3100}
     - Class: 114
-      Script: {instanceID: 3288}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3290}
     - Class: 114
-      Script: {instanceID: 3582}
+      Script: {instanceID: 3404}
+    - Class: 114
+      Script: {instanceID: 3584}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -406,19 +417,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1512}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3288}
+      Script: {instanceID: 3290}
     - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 4022}
+      Script: {instanceID: 4024}
     - Class: 114
-      Script: {instanceID: 4234}
+      Script: {instanceID: 4236}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -720,7 +731,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 250a73fe1af58002be42ea901b8de6a2
+      Hash: 137ea6aa97a461f7ef45ad2236b0df24
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SignUp
@@ -868,6 +879,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NotAvailButton
   - hash:
       serializedVersion: 2
       Hash: f941c3a384168571b7d90f58ec4986bc
@@ -2020,11 +2037,17 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
+  - hash:
+      serializedVersion: 2
+      Hash: e85f244a7d087a1885c2effb0ebbd9e6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player1Audio
   platform: 19
   scenePathNames:
   - Assets/Scenes/Login.unity
-  - Assets/Scenes/Lobby.unity
   - Assets/Scenes/SignUp.unity
-  - Assets/Scenes/GameBoard.unity
+  - Assets/Scenes/Lobby.unity
   - Assets/Scenes/rank.unity
+  - Assets/Scenes/GameBoard.unity
   playerPath: C:/Users/kyung/Desktop/build/practice.exe

@@ -51,8 +51,10 @@
      <Compile Include="Assets\AvailableButton.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
      <Compile Include="Assets\Script\LobbyManager.cs" />
+     <Compile Include="Assets\NotAvailButton.cs" />
      <Compile Include="Assets\Player2Coin.cs" />
      <Compile Include="Assets\Script\Common_Card.cs" />
+     <Compile Include="Assets\Check.cs" />
      <Compile Include="Assets\Script\Card_Get2.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
      <Compile Include="Assets\Script\Card_Get1.cs" />
@@ -80,7 +82,7 @@
      <Compile Include="Assets\P1CardNumber.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
      <Compile Include="Assets\Player1Button.cs" />
-     <Compile Include="Assets\Check.cs" />
+     <Compile Include="Assets\Player1Audio.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />

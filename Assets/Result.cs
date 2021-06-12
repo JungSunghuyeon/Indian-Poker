@@ -6,71 +6,158 @@ using Photon.Pun;
 using Firebase;
 using Firebase.Database;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Result : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static Text tx_result;
 
     DatabaseReference reference;
-
+    int winCoin;
+    int loseCoin;
     void Start()
     {
         tx_result = GameObject.Find("tx_result").GetComponent<Text>();
-        tx_result.text = " ";
+        tx_result.text = "";
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     public void Update()
     {
+        if (Player1Button.p1die_state == true)
+        {
+            Disable();
+            if (BettingCoin.num == 0)
+            {
+                
+            }
+            else
+            {
+
+            }
+        }
+        else if(Player2Button.p2die_state == true)
+        {
+            if (BettingCoin.num == 0)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
         if (Player1Button.p1state == true && Player2Button.p2state == true)
         {
             Disable();
             if (P1CardNumber.p1Num > P2CardNumber.p2Num)
             {
-                if(PhotonNetwork.IsMasterClient){
-                    tx_result.text = "승리";
-                }
-                else{
-                    tx_result.text = "패배";
+                try{
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        tx_result.text = "승리";
+                    }
+                    else
+                    {
+                        tx_result.text = "패배";
+                    }
+                }catch(NullReferenceException ex){
+                    Debug.Log("");
                 }
                 Player1Coin.tx_p1Coin.text = (Player1Button.p1usercoin + BettingCoin.num).ToString();
-                int winCoin = Player1Button.p1usercoin + BettingCoin.num;
-                int loseCoin = Player2Button.p2usercoin;
+                winCoin = Player1Button.p1usercoin + BettingCoin.num;
+                loseCoin = Player2Button.p2usercoin;
                 Player1Coin.tx_p1Coin.text = winCoin.ToString();
                 coinUpdate(Player1ID.player1ID, winCoin);
                 coinUpdate(Player2ID.player2ID, loseCoin);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PlayerName.coinUpdate(Player1ID.player1ID);
+                }
+                else
+                {
+                    PlayerName.coinUpdate(Player2ID.player2ID);
+                }
             }
             else if (P1CardNumber.p1Num < P2CardNumber.p2Num)
             {
-                 if(!PhotonNetwork.IsMasterClient){
-                    tx_result.text = "승리";
+                try
+                {
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        tx_result.text = "승리";
+                    }
+                    else
+                    {
+                        tx_result.text = "패배";
+                    }
                 }
-                else{
-                    tx_result.text = "패배";
+                catch (NullReferenceException ex)
+                {
+                    Debug.Log("");
                 }
-                int winCoin = Player2Button.p2usercoin + BettingCoin.num;
-                int loseCoin = Player1Button.p1usercoin;
+                winCoin = Player2Button.p2usercoin + BettingCoin.num;
+                loseCoin = Player1Button.p1usercoin;
                 Player2Coin.tx_p2Coin.text = winCoin.ToString();
                 coinUpdate(Player2ID.player2ID, winCoin);
                 coinUpdate(Player1ID.player1ID, loseCoin);
+                if (!PhotonNetwork.IsMasterClient)
+                {
+                    PlayerName.coinUpdate(Player2ID.player2ID);
+                }
+                else
+                {
+                    PlayerName.coinUpdate(Player1ID.player1ID);
+                }
             }
             else
             {
-                if(!PhotonNetwork.IsMasterClient || PhotonNetwork.IsMasterClient){
+                if (!PhotonNetwork.IsMasterClient || PhotonNetwork.IsMasterClient)
+                {
                     tx_result.text = "무승부";
                 }
             }
-
-           Invoke("LeftRoom", 2f);
+            Invoke("LeftRoom", 3f);
         }
     }
-    public void LeftRoom(){
-        if(photonView.IsMine){
+    public void LeftRoom()
+    {
+        init();
         PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("Lobby");
-        }
-      
+        PhotonNetwork.LoadLevel("Lobby");
+
     }
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetwork.LeaveRoom();
+    }
+    public void init()
+    {
+
+        Player1Button.p1bet = 0;
+        Player2Button.p2bet = 0;
+        Player1Button.p1state = false;
+        Player2Button.p2state = false;
+        winCoin = 0;
+        loseCoin = 0;
+        BettingCoin.num = 0;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PlayerName.coinUpdate(Player1ID.player1ID);
+        }
+        else
+        {
+            PlayerName.coinUpdate(Player2ID.player2ID);
+        }
+        Destroy(BettingCoin.tx_betcoin);
+        Destroy(tx_result);
+
+    }
+   
+ 
+
+
 
     public void Disable()
     {
@@ -114,11 +201,13 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
         reference.UpdateChildrenAsync(childUpdates);
     }
 
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        try
+
+        if (stream.IsWriting)
         {
-            if (stream.IsWriting)
+            try
             {
                 stream.SendNext(Player1Button.p1state);
                 stream.SendNext(Player2Button.p2state);
@@ -134,13 +223,29 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
                 stream.SendNext(Player2Button.btn_p2call.interactable);
                 stream.SendNext(Player2Button.btn_p2half.interactable);
                 stream.SendNext(Player2Button.btn_p2die.interactable);
-                stream.SendNext(Player1Button.p1usercoin); 
-                stream.SendNext(Player2Button.p2usercoin); 
-                stream.SendNext(Player1Coin.tx_p1Coin.text); 
-                stream.SendNext(Player2Coin.tx_p2Coin.text); 
+                stream.SendNext(Player1Button.p1usercoin);
+                stream.SendNext(Player2Button.p2usercoin);
+                stream.SendNext(Player1Coin.tx_p1Coin.text);
+                stream.SendNext(Player2Coin.tx_p2Coin.text);
 
+                stream.SendNext(winCoin);
+                stream.SendNext(loseCoin);
+
+                stream.SendNext(Player1Coin.p1Coin);
+                stream.SendNext(Player2Coin.p2Coin);
+
+                stream.SendNext(Player1Button.p1bet);
+                stream.SendNext(Player2Button.p2bet);
             }
-            else
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
+
+        }
+        else
+        {
+            try
             {
                 Player1Button.p1state = (bool)stream.ReceiveNext();
                 Player2Button.p2state = (bool)stream.ReceiveNext();
@@ -160,11 +265,22 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
                 Player2Button.p2usercoin = (int)stream.ReceiveNext();
                 Player1Coin.tx_p1Coin.text = (string)stream.ReceiveNext();
                 Player2Coin.tx_p2Coin.text = (string)stream.ReceiveNext();
+
+                winCoin = (int)stream.ReceiveNext();
+                loseCoin = (int)stream.ReceiveNext();
+
+                Player1Coin.p1Coin = (string)stream.ReceiveNext();
+                Player2Coin.p2Coin = (string)stream.ReceiveNext();
+
+                Player1Button.p1bet = (int)stream.ReceiveNext();
+                Player2Button.p2bet = (int)stream.ReceiveNext();
             }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
+
         }
-        catch (System.InvalidCastException)
-        {
-            Debug.Log("ㅁㄴㅇㅁㅇ");
-        }
+
     }
 }

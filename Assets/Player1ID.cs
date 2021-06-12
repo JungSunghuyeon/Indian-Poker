@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 
 public class Player1ID : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -19,22 +20,33 @@ public class Player1ID : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        try
-        {
-            if (stream.IsWriting)
-            {
-                stream.SendNext(tx_player1ID.text);
-                stream.SendNext(player1ID);
-            }
-            else
-            {
-                tx_player1ID.text = (string)stream.ReceiveNext();
-                player1ID = (string)stream.ReceiveNext();
-            }
-        }
-        catch (System.NullReferenceException)
-        {
 
+        if (stream.IsWriting)
+        {
+            try
+            {
+                stream.SendNext(player1ID);
+                stream.SendNext(tx_player1ID.text);
+                
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
+        else
+        {
+            try
+            {
+                player1ID = (string)stream.ReceiveNext();
+                tx_player1ID.text = (string)stream.ReceiveNext();
+                
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
+        }
+
     }
 }

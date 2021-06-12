@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
@@ -39,9 +40,9 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
         Invoke("ResultSpawn", 3f);
     }
     
- 
+    
     public void Firstturn(){
-        turn = Random.Range(1,3);
+        turn = UnityEngine.Random.Range(1,3);
         if(turn == 1){
             Player1Button.btn_p1call.interactable = true;
             Player1Button.btn_p1half.interactable = true;
@@ -69,12 +70,13 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         PhotonNetwork.Instantiate("Result", Vector3.zero, Quaternion.identity);
     }
- 
 
+  
      public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
+            try{
             stream.SendNext(turn);
             stream.SendNext(Player1Button.btn_p1call.interactable);
             stream.SendNext(Player1Button.btn_p1half.interactable);
@@ -82,15 +84,29 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(Player2Button.btn_p2call.interactable);
             stream.SendNext(Player2Button.btn_p2half.interactable);
             stream.SendNext(Player2Button.btn_p2die.interactable);
+            
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
         else
         {
+            try{
+            turn = (int)stream.ReceiveNext();
+                
             Player1Button.btn_p1call.interactable = (bool)stream.ReceiveNext();
             Player1Button.btn_p1half.interactable = (bool)stream.ReceiveNext();
             Player1Button.btn_p1die.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2call.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2half.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2die.interactable = (bool)stream.ReceiveNext();
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("");
+            }
         }
     }
   

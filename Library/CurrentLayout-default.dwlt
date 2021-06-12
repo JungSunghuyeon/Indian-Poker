@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 342}
-  m_MaxSize: {x: 12004, y: 8042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 20
+  controlID: 15
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,14 +120,14 @@ MonoBehaviour:
     y: 640
     width: 1424
     height: 307
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -223,10 +223,10 @@ MonoBehaviour:
     y: 0
     width: 1424
     height: 947
-  m_MinSize: {x: 403, y: 342}
-  m_MaxSize: {x: 8003, y: 8042}
+  m_MinSize: {x: 403, y: 492}
+  m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 21
+  controlID: 16
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 113
+  controlID: 17
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\dlawl\Documents\GitHub\Indian-Poker
+  m_LastProjectPath: C:\Users\user\Documents\GitHub\Indian-Poker
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -599,7 +599,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 30f6ffff4af6ffff4cf8ffff54f8ffff60f8ffff6ef8ffff72f8ffff3afbffff
+      m_ExpandedIDs: 4ce5ffff64e5ffff66e5ffff6ae5ffff6ee5ffff72e5ffff76e5fffff0e5ffff08e6ffff0ae6ffff0ee6ffff12e6ffff16e6ffff1ae6ffff7ce6ffff94e6ffff96e6ffff9ae6ffff9ee6ffffa2e6ffffa6e6ffffeae6ffff02e7ffff04e7ffff08e7ffff0ce7ffff10e7ffff14e7ffff5ee7ffff76e7ffff78e7ffff7ce7ffff80e7ffff84e7ffff88e7ffffcee7ffffe6e7ffffe8e7ffffece7fffff0e7fffff4e7fffff8e7ffff46e8ffff5ee8ffff5eeaffff6aeaffff7aeaffff8ceaffff9ceaffff5eebffff76ebffff78ebffff7cebffff80ebffff84ebffff88ebffffe8ebffff00ecfffffcedffff04eeffff10eeffff1eeeffff2aeeffffe0eefffff8eefffff8f0ffff04f1ffff14f1ffff26f1ffff36f1fffffcf1ffff14f2ffff16f2ffff1af2ffff1ef2ffff22f2ffff26f2ffff76f2ffff8ef2ffff80f4ffff88f4ffff94f4ffffa2f4ffffaef4ffffd8f9ffffe2f9ffffe6f9ffff94faffff3afbffff3e450000544500006a450000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

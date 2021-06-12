@@ -52,6 +52,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -2049,4 +2050,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Lobby.unity
   - Assets/Scenes/rank.unity
   - Assets/Scenes/GameBoard.unity
-  playerPath: C:/Users/dlawl/Desktop/build/practice.exe
+  playerPath: "C:/Users/user/Desktop/\uC778\uB514\uC5B8\uD3EC\uCEE4/practice.exe"

@@ -231,16 +231,13 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
     {
         init();
         PhotonNetwork.Disconnect();
-        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetwork.LoadLevel(0);
 
     }
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("Lobby");
-        PhotonNetwork.LeaveRoom();
-    }
+    
     public void init()
     {
+        
         Player1Button.p1bet = 0;
         Player2Button.p2bet = 0;
         Player1Button.p1state = false;

@@ -58,7 +58,7 @@ public class Ranking : MonoBehaviour
         }
         if (Time.timeScale != 0.0f) Time.timeScale = 0.0f;
         }catch(System.NullReferenceException){
-            Debug.Log("null");
+           
         }
     }
     void LateUpdate()

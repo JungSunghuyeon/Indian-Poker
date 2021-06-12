@@ -10,7 +10,7 @@ using System;
 
 public class SignUp : MonoBehaviour
 {
-    GameObject Available;
+    public GameObject Available, check;
     DatabaseReference reference;
     public InputField id_text2;
     public InputField name_text;
@@ -18,18 +18,18 @@ public class SignUp : MonoBehaviour
     public InputField password_text3;
     public bool id_check = false;
     private int dafaultCoin = 30;
+    public void Awake(){
+        Available = GameObject.Find("Avail");
+        check = GameObject.Find("Check");
+        Available.SetActive(false);
+        check.SetActive(false);
+    }
     public void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
-        Available = GameObject.Find("Avail");
-        Available.SetActive(false);
+        
     }
-    private ConcurrentQueue<Action> mainThreadActions = new ConcurrentQueue<Action>();
-    private void Update(){
-        while(mainThreadActions.Count > 0 && mainThreadActions.TryDequeue(out var action)){
-            action?.Invoke();
-        }
-    }
+    
     
     public void Change()
     {
@@ -56,13 +56,13 @@ public class SignUp : MonoBehaviour
             }
             else
             {
-                Available.SetActive(true);
+                check.SetActive(true);
                 Debug.Log("Not duplication checked");
             }
         }
         else
         {
-            Available.SetActive(true);
+            check.SetActive(true);
             Debug.Log("something is empty");
         }
     }

@@ -19,23 +19,17 @@ public class Player1ID : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
         try
         {
             if (stream.IsWriting)
             {
                 stream.SendNext(tx_player1ID.text);
-             
                 stream.SendNext(player1ID);
-                
             }
             else
             {
                 tx_player1ID.text = (string)stream.ReceiveNext();
-                
                 player1ID = (string)stream.ReceiveNext();
-                
-
             }
         }
         catch (System.NullReferenceException)

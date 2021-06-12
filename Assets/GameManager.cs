@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
         CardSpawn();
         Invoke("ResultSpawn", 3f);
     }
-
+    
+ 
     public void Firstturn(){
         turn = Random.Range(1,3);
         if(turn == 1){
@@ -66,53 +67,30 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public void ResultSpawn()
     {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate("Result", Vector3.zero, Quaternion.identity);
-        }
-        else{
-            return;
-        }
+        PhotonNetwork.Instantiate("Result", Vector3.zero, Quaternion.identity);
     }
  
- 
-
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("Lobby");
-    }
 
      public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
             stream.SendNext(turn);
-
             stream.SendNext(Player1Button.btn_p1call.interactable);
             stream.SendNext(Player1Button.btn_p1half.interactable);
             stream.SendNext(Player1Button.btn_p1die.interactable);
-
             stream.SendNext(Player2Button.btn_p2call.interactable);
             stream.SendNext(Player2Button.btn_p2half.interactable);
             stream.SendNext(Player2Button.btn_p2die.interactable);
-            
-           
-
-
         }
         else
         {
-          
             Player1Button.btn_p1call.interactable = (bool)stream.ReceiveNext();
             Player1Button.btn_p1half.interactable = (bool)stream.ReceiveNext();
             Player1Button.btn_p1die.interactable = (bool)stream.ReceiveNext();
-
             Player2Button.btn_p2call.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2half.interactable = (bool)stream.ReceiveNext();
             Player2Button.btn_p2die.interactable = (bool)stream.ReceiveNext();
-            
-
-        
         }
     }
   

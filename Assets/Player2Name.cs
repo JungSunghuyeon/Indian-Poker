@@ -12,8 +12,10 @@ public class Player2Name : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         tx_p2Name = GetComponent<Text>();
-        p2Name = Login.name;
-        tx_p2Name.text = p2Name;
+        if(!PhotonNetwork.IsMasterClient){
+            p2Name = Login.name;
+            tx_p2Name.text = p2Name;
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -24,17 +26,12 @@ public class Player2Name : MonoBehaviourPunCallbacks, IPunObservable
             if (stream.IsWriting)
             {
                 stream.SendNext(tx_p2Name.text);
-             
-                stream.SendNext(Login.name);
-                
+                stream.SendNext(p2Name);
             }
             else
             {
                 tx_p2Name.text = (string)stream.ReceiveNext();
-                
-                Login.name = (string)stream.ReceiveNext();
-                
-
+               p2Name = (string)stream.ReceiveNext();
             }
         }
         catch (System.NullReferenceException)

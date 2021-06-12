@@ -8,10 +8,16 @@ using Photon.Realtime;
 public class Player1Coin : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static Text tx_p1Coin;
+    public static string p1Coin;
     void Start()
     {
         tx_p1Coin = GetComponent<Text>();
-        tx_p1Coin.text = Login.coin;
+        if(PhotonNetwork.IsMasterClient){
+            p1Coin = Login.coin;
+            tx_p1Coin.text = p1Coin;
+        }
+        
+
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -20,12 +26,12 @@ public class Player1Coin : MonoBehaviourPunCallbacks, IPunObservable
             if (stream.IsWriting)
             {
                 stream.SendNext(tx_p1Coin.text);
-                stream.SendNext(Login.coin);
+                stream.SendNext(p1Coin);
             }
             else
             {
                 tx_p1Coin.text = (string)stream.ReceiveNext();
-                Login.coin = (string)stream.ReceiveNext();
+                p1Coin = (string)stream.ReceiveNext();
             }
         }
         catch (System.NullReferenceException)

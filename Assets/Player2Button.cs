@@ -33,7 +33,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
         btn_p2call.onClick.AddListener(p2Call);
         btn_p2half.onClick.AddListener(p2Half);
         btn_p2die.onClick.AddListener(p2Die);
-        p2usercoin = int.Parse(Login.coin);
+        p2usercoin = int.Parse(Player2Coin.tx_p2Coin.text);
     }
 
     public void p2Call()
@@ -177,57 +177,41 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-        
             stream.SendNext(p2state);
-            
 
-            stream.SendNext(Player1Button.btn_p1call.interactable);
-            stream.SendNext(Player1Button.btn_p1half.interactable);
-            stream.SendNext(Player1Button.btn_p1die.interactable);
+            //stream.SendNext(Player1Button.btn_p1call.interactable);
+            //stream.SendNext(Player1Button.btn_p1half.interactable);
+            //stream.SendNext(Player1Button.btn_p1die.interactable);
 
-            stream.SendNext(btn_p2call.interactable);
-            stream.SendNext(btn_p2half.interactable);
-            stream.SendNext(btn_p2die.interactable);
+            stream.SendNext(Player2Button.btn_p2call.interactable);
+            stream.SendNext(Player2Button.btn_p2half.interactable);
+            stream.SendNext(Player2Button.btn_p2die.interactable);
 
             stream.SendNext(p2usercoin);
             stream.SendNext(Player2Coin.tx_p2Coin.text);
-
-
             stream.SendNext(Player1Button.p1bet);
             stream.SendNext(p2bet);
             stream.SendNext(BettingCoin.num);
-
             stream.SendNext(BettingCoin.tx_betcoin.text);
-
-            
-
-
         }
         else
         {
             p2state = (bool)stream.ReceiveNext();
-            
 
-            Player1Button.btn_p1call.interactable = (bool)stream.ReceiveNext();
-            Player1Button.btn_p1half.interactable = (bool)stream.ReceiveNext();
-            Player1Button.btn_p1die.interactable = (bool)stream.ReceiveNext();
+            //Player1Button.btn_p1call.interactable = (bool)stream.ReceiveNext();
+            //Player1Button.btn_p1half.interactable = (bool)stream.ReceiveNext();
+            //Player1Button.btn_p1die.interactable = (bool)stream.ReceiveNext();
 
-            btn_p2call.interactable = (bool)stream.ReceiveNext();
-            btn_p2half.interactable = (bool)stream.ReceiveNext();
-            btn_p2die.interactable = (bool)stream.ReceiveNext();
+            Player2Button.btn_p2call.interactable = (bool)stream.ReceiveNext();
+            Player2Button.btn_p2half.interactable = (bool)stream.ReceiveNext();
+            Player2Button.btn_p2die.interactable = (bool)stream.ReceiveNext();
 
             p2usercoin = (int)stream.ReceiveNext();
             Player2Coin.tx_p2Coin.text = (string)stream.ReceiveNext();
-
-
             Player1Button.p1bet = (int)stream.ReceiveNext();
             p2bet = (int)stream.ReceiveNext();
-
             BettingCoin.num = (int)stream.ReceiveNext();
-
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
-
-            
         }
     }
 }

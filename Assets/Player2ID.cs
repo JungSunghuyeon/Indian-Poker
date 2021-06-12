@@ -25,17 +25,13 @@ public class Player2ID : MonoBehaviourPunCallbacks, IPunObservable
             if (stream.IsWriting)
             {
                 stream.SendNext(tx_player2ID.text);
-             
                 stream.SendNext(player2ID);
                 
             }
             else
             {
                 tx_player2ID.text = (string)stream.ReceiveNext();
-                
                 player2ID = (string)stream.ReceiveNext();
-                
-
             }
         }
         catch (System.NullReferenceException)

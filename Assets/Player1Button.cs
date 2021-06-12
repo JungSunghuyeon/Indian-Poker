@@ -157,7 +157,6 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
     {
         p1die_state = true;
         player1Disable();
-
     }
 
     public void player1Disable()
@@ -192,6 +191,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(Player2Button.p2bet);
             stream.SendNext(BettingCoin.num);
             stream.SendNext(BettingCoin.tx_betcoin.text);
+            stream.SendNext(p1die_state);
             }catch (NullReferenceException ex)
             {
                 Debug.Log("");
@@ -216,6 +216,7 @@ public class Player1Button : MonoBehaviourPunCallbacks, IPunObservable
             Player2Button.p2bet = (int)stream.ReceiveNext();
             BettingCoin.num = (int)stream.ReceiveNext();
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
+            p1die_state = (bool)stream.ReceiveNext();
             } catch (NullReferenceException ex)
             {
                 Debug.Log("");

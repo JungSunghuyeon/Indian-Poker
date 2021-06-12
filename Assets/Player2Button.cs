@@ -189,6 +189,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(p2bet);
             stream.SendNext(BettingCoin.num);
             stream.SendNext(BettingCoin.tx_betcoin.text);
+            stream.SendNext(p2die_state);
             }catch (NullReferenceException ex)
             {
                 Debug.Log("");
@@ -213,6 +214,7 @@ public class Player2Button : MonoBehaviourPunCallbacks, IPunObservable
             p2bet = (int)stream.ReceiveNext();
             BettingCoin.num = (int)stream.ReceiveNext();
             BettingCoin.tx_betcoin.text = (string)stream.ReceiveNext();
+            p2die_state = (bool)stream.ReceiveNext();
             }catch (NullReferenceException ex)
             {
                 Debug.Log("");

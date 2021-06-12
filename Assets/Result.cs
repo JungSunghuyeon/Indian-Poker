@@ -29,23 +29,130 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
             Disable();
             if (BettingCoin.num == 0)
             {
-                
+                try
+                {
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        tx_result.text = "승리";
+                    }
+                    else
+                    {
+                        tx_result.text = "패배";
+                    }
+                }
+                catch (NullReferenceException ex)
+                {
+                    Debug.Log("");
+                }
+                winCoin = Player2Button.p2usercoin + 2;
+                loseCoin = Player1Button.p1usercoin - 2;
+                Player2Coin.tx_p2Coin.text = winCoin.ToString();
+                coinUpdate(Player2ID.player2ID, winCoin);
+                coinUpdate(Player1ID.player1ID, loseCoin);
+                if (!PhotonNetwork.IsMasterClient)
+                {
+                    PlayerName.coinUpdate(Player2ID.player2ID);
+                }
+                else
+                {
+                    PlayerName.coinUpdate(Player1ID.player1ID);
+                }
             }
             else
             {
-
+                try
+                {
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        tx_result.text = "승리";
+                    }
+                    else
+                    {
+                        tx_result.text = "패배";
+                    }
+                }
+                catch (NullReferenceException ex)
+                {
+                    Debug.Log("");
+                }
+                winCoin = Player2Button.p2usercoin + BettingCoin.num;
+                loseCoin = Player1Button.p1usercoin;
+                Player2Coin.tx_p2Coin.text = winCoin.ToString();
+                coinUpdate(Player2ID.player2ID, winCoin);
+                coinUpdate(Player1ID.player1ID, loseCoin);
+                if (!PhotonNetwork.IsMasterClient)
+                {
+                    PlayerName.coinUpdate(Player2ID.player2ID);
+                }
+                else
+                {
+                    PlayerName.coinUpdate(Player1ID.player1ID);
+                }
             }
+            Player1Button.p1die_state = false;
+            Invoke("LeftRoom", 3f);
         }
         else if(Player2Button.p2die_state == true)
         {
             if (BettingCoin.num == 0)
             {
-
+                try{
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        tx_result.text = "승리";
+                    }
+                    else
+                    {
+                        tx_result.text = "패배";
+                    }
+                }catch(NullReferenceException ex){
+                    Debug.Log("");
+                }
+                Player1Coin.tx_p1Coin.text = (Player1Button.p1usercoin + BettingCoin.num).ToString();
+                winCoin = Player1Button.p1usercoin + 2;
+                loseCoin = Player2Button.p2usercoin - 2;
+                Player1Coin.tx_p1Coin.text = winCoin.ToString();
+                coinUpdate(Player1ID.player1ID, winCoin);
+                coinUpdate(Player2ID.player2ID, loseCoin);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PlayerName.coinUpdate(Player1ID.player1ID);
+                }
+                else
+                {
+                    PlayerName.coinUpdate(Player2ID.player2ID);
+                }
             }
             else
             {
-
+                try{
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        tx_result.text = "승리";
+                    }
+                    else
+                    {
+                        tx_result.text = "패배";
+                    }
+                }catch(NullReferenceException ex){
+                    Debug.Log("");
+                }
+                Player1Coin.tx_p1Coin.text = (Player1Button.p1usercoin + BettingCoin.num).ToString();
+                winCoin = Player1Button.p1usercoin + BettingCoin.num;
+                loseCoin = Player2Button.p2usercoin;
+                Player1Coin.tx_p1Coin.text = winCoin.ToString();
+                coinUpdate(Player1ID.player1ID, winCoin);
+                coinUpdate(Player2ID.player2ID, loseCoin);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PlayerName.coinUpdate(Player1ID.player1ID);
+                }
+                else
+                {
+                    PlayerName.coinUpdate(Player2ID.player2ID);
+                }
             }
+            Invoke("LeftRoom", 3f);
         }
         if (Player1Button.p1state == true && Player2Button.p2state == true)
         {
@@ -134,7 +241,6 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void init()
     {
-
         Player1Button.p1bet = 0;
         Player2Button.p2bet = 0;
         Player1Button.p1state = false;
@@ -152,7 +258,6 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
         }
         Destroy(BettingCoin.tx_betcoin);
         Destroy(tx_result);
-
     }
    
  
@@ -236,6 +341,8 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
 
                 stream.SendNext(Player1Button.p1bet);
                 stream.SendNext(Player2Button.p2bet);
+                stream.SendNext(Player1Button.p1die_state);
+                stream.SendNext(Player2Button.p2die_state);
             }
             catch (NullReferenceException ex)
             {
@@ -274,6 +381,8 @@ public class Result : MonoBehaviourPunCallbacks, IPunObservable
 
                 Player1Button.p1bet = (int)stream.ReceiveNext();
                 Player2Button.p2bet = (int)stream.ReceiveNext();
+                Player1Button.p1die_state = (bool)stream.ReceiveNext();
+                Player2Button.p2die_state = (bool)stream.ReceiveNext();
             }
             catch (NullReferenceException ex)
             {
